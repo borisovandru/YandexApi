@@ -7,7 +7,7 @@ import com.android.wordtranslator.presenter.IInteractor
 import io.reactivex.Observable
 
 class MainInteractor(
-    private val repository: IRepository<DictionaryResult>,
+    private val repository: IRepository<DictionaryResult>
 ) : IInteractor<AppState> {
     override fun getData(word: String): Observable<AppState> =
         repository.getData(word)

@@ -9,20 +9,24 @@ import android.view.View.VISIBLE
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.android.wordtranslator.R
 import com.android.wordtranslator.databinding.ActivityMainBinding
 import com.android.wordtranslator.domain.model.AppState
 import com.android.wordtranslator.domain.model.DictionaryEntry
-import com.android.wordtranslator.presenter.IPresenter
 import com.android.wordtranslator.view.base.BaseActivity
-import com.android.wordtranslator.view.base.IView
 import com.android.wordtranslator.view.main.adapter.WordAdapter
 
 class MainActivity : BaseActivity<AppState>(), WordAdapter.Delegate {
 
     private val binding: ActivityMainBinding by viewBinding()
+
+    override val model: MainViewModel by lazy {
+        ViewModelProvider.NewInstanceFactory().create(MainViewModel::class.java)
+    }
 
     private val adapter by lazy { WordAdapter(this) }
 
@@ -45,9 +49,7 @@ class MainActivity : BaseActivity<AppState>(), WordAdapter.Delegate {
         override fun afterTextChanged(s: Editable) {}
     }
 
-    override fun createPresenter(): IPresenter<AppState, IView> {
-        return MainPresenterImpl()
-    }
+    private val observer = Observer<AppState> { renderData(it) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +63,9 @@ class MainActivity : BaseActivity<AppState>(), WordAdapter.Delegate {
         }
 
         binding.find.setOnClickListener {
-            presenter.getData(binding.searchEditText.text.toString())
+            model.getData(binding.searchEditText.text.toString())
+                .observe(this@MainActivity, observer)
+
 
             val view = this.currentFocus
             view?.let {
@@ -108,7 +112,8 @@ class MainActivity : BaseActivity<AppState>(), WordAdapter.Delegate {
         showViewError()
         binding.errorTextview.text = error ?: getString(R.string.undefined_error)
         binding.reloadButton.setOnClickListener {
-            presenter.getData(binding.searchEditText.text.toString())
+            model.getData(binding.searchEditText.text.toString())
+                .observe(this@MainActivity, observer)
         }
     }
 
