@@ -17,7 +17,6 @@ import javax.inject.Singleton
         YandexApiModule::class,
         InteractorModule::class,
         RepositoryModule::class,
-        ViewModelModule::class,
         ScreenModule::class,
         AndroidSupportInjectionModule::class]
 )

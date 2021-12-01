@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.android.wordtranslator.R
 import com.android.wordtranslator.databinding.ActivityMainBinding
+import com.android.wordtranslator.di.MainViewModelAssistedFactory
 import com.android.wordtranslator.domain.model.AppState
 import com.android.wordtranslator.domain.model.DictionaryEntry
 import com.android.wordtranslator.view.base.BaseActivity
@@ -31,9 +32,8 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), WordAdapter.Deleg
     }
 
     @Inject
-    internal lateinit var viewModelFactory: ViewModelProvider.Factory
+    lateinit var assistedFactory: MainViewModelAssistedFactory
 
-    @Inject
     override lateinit var model: MainViewModel
 
     private val binding: ActivityMainBinding by viewBinding()
@@ -60,13 +60,15 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), WordAdapter.Deleg
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val viewModelFactory = assistedFactory.create(this)
+
+        model = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
 
         model.networkStateLiveData().observe(this@MainActivity, Observer<Boolean> {
             isNetworkAvailable = it
         })
         model.getNetworkState()
 
-        model = viewModelFactory.create(MainViewModel::class.java)
         model.translateLiveData().observe(this@MainActivity, Observer<AppState> { renderData(it) })
 
         init()
@@ -212,5 +214,22 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), WordAdapter.Deleg
     override fun onItemPicked(word: DictionaryEntry) {
         Toast.makeText(this, word.translatesList.joinToString(separator = ",\n"), Toast.LENGTH_LONG)
             .show()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        model.saveLastWord(binding.searchEditText.text.toString())
+        outState.putString("TEST", "TESTVALUE")
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        model.getLastWord().let {
+            /**
+             * Состояние и так восстанавливается. Но можно перепослать запрос, чтобы
+             * получить актуальные данные, если расскоментировать код ниже:
+             * //model.getData(it)
+             */
+        }
     }
 }

@@ -14,22 +14,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06550c20-4218-4b86-aa18-ceb68abc40b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/module/NetworkModule.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/utils/network/NetworkState.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/utils/network/NetworkStateObservable.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/MainViewModelAssistedFactory.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/MainViewModelFactory.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ApplicationComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ApplicationComponent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/base/BaseActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/base/BaseActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ViewModelFactory.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ViewModelKey.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/module/ViewModelModule.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/BaseViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/BaseViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,11 +118,11 @@
       <recent name="C:\Users\boris\GeekBrains\WordTranslator" />
     </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="com.android.wordtranslator.di" />
       <recent name="com.android.wordtranslator.utils.network" />
       <recent name="com.android.wordtranslator.di.module" />
       <recent name="com.android.wordtranslator.viewmodel" />
       <recent name="com.android.wordtranslator.view.main" />
-      <recent name="com.android.wordtranslator.domain" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.android.wordtranslator.utils.network" />
@@ -250,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638375337496</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Реализация проверки на наличие связи с интернетом.&#10;- реализация через Observable класс и подписка на изменение сетевой конфигурации&#10;- добавление нового модуля в даггер для инжекции экземпляра класса&#10;- сделал такую реализацию, т.к. примеры с методички идут с deprecated методами и та реализация наверное скоро будет неактуальной :)&#10;- заинжектил через конструктор данный класс во вью модель, т.к. там уже есть compositeDisposable, к которому можно добавить этот класс. А изначально вариант был в Activity, где пришлось создавать новый CompositeDisposable и потом очищать.">
+      <created>1638381101432</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1638381101432</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -276,6 +276,7 @@
     <MESSAGE value="переименовал" />
     <MESSAGE value="- Избавился от интерфейсов для View и презентера, а также от самого презентера и ссылок на него&#10;- Добавил ViewModel, организовал получение данных через подпииску на лайвдату." />
     <MESSAGE value="Реализация внедрения зависимостей через Dagger" />
-    <option name="LAST_COMMIT_MESSAGE" value="Реализация внедрения зависимостей через Dagger" />
+    <MESSAGE value="Реализация проверки на наличие связи с интернетом.&#10;- реализация через Observable класс и подписка на изменение сетевой конфигурации&#10;- добавление нового модуля в даггер для инжекции экземпляра класса&#10;- сделал такую реализацию, т.к. примеры с методички идут с deprecated методами и та реализация наверное скоро будет неактуальной :)&#10;- заинжектил через конструктор данный класс во вью модель, т.к. там уже есть compositeDisposable, к которому можно добавить этот класс. А изначально вариант был в Activity, где пришлось создавать новый CompositeDisposable и потом очищать." />
+    <option name="LAST_COMMIT_MESSAGE" value="Реализация проверки на наличие связи с интернетом.&#10;- реализация через Observable класс и подписка на изменение сетевой конфигурации&#10;- добавление нового модуля в даггер для инжекции экземпляра класса&#10;- сделал такую реализацию, т.к. примеры с методички идут с deprecated методами и та реализация наверное скоро будет неактуальной :)&#10;- заинжектил через конструктор данный класс во вью модель, т.к. там уже есть compositeDisposable, к которому можно добавить этот класс. А изначально вариант был в Activity, где пришлось создавать новый CompositeDisposable и потом очищать." />
   </component>
 </project>
