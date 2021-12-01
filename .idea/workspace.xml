@@ -13,7 +13,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06550c20-4218-4b86-aa18-ceb68abc40b5" name="Default Changelist" comment="" />
+    <list default="true" id="06550c20-4218-4b86-aa18-ceb68abc40b5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/MainViewModelAssistedFactory.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/MainViewModelFactory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ApplicationComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ApplicationComponent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ViewModelFactory.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ViewModelKey.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/module/ViewModelModule.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainViewModel.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,9 +67,10 @@
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/.." value="main" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -73,6 +84,9 @@
     <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="lesson1" />
     <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="borisovandru" />
     <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="TranslatorYandex" />
+  </component>
+  <component name="KotlinCodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ProjectId" id="21TAGDi4P7CJxtM6Y17Tl5WRmNA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -104,14 +118,18 @@
       <recent name="C:\Users\boris\GeekBrains\WordTranslator" />
     </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
-      <recent name="com.android.wordtranslator.domain" />
+      <recent name="com.android.wordtranslator.di" />
+      <recent name="com.android.wordtranslator.utils.network" />
+      <recent name="com.android.wordtranslator.di.module" />
+      <recent name="com.android.wordtranslator.viewmodel" />
+      <recent name="com.android.wordtranslator.view.main" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.android.wordtranslator.utils.network" />
       <recent name="com.android.wordtranslator.view.main" />
       <recent name="com.android.wordtranslator.view" />
       <recent name="com.android.wordtranslator.domain.scheduler" />
       <recent name="com.android.wordtranslator.domain.model" />
-      <recent name="com.android.wordtranslator.domain.api" />
     </key>
   </component>
   <component name="RunManager">
@@ -211,8 +229,32 @@
       <option name="project" value="LOCAL" />
       <updated>1638300272255</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="- Избавился от интерфейсов для View и презентера, а также от самого презентера и ссылок на него&#10;- Добавил ViewModel, организовал получение данных через подпииску на лайвдату.">
+      <created>1638304507017</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1638304507017</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Реализация внедрения зависимостей через Dagger">
+      <created>1638375337496</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1638375337496</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Реализация проверки на наличие связи с интернетом.&#10;- реализация через Observable класс и подписка на изменение сетевой конфигурации&#10;- добавление нового модуля в даггер для инжекции экземпляра класса&#10;- сделал такую реализацию, т.к. примеры с методички идут с deprecated методами и та реализация наверное скоро будет неактуальной :)&#10;- заинжектил через конструктор данный класс во вью модель, т.к. там уже есть compositeDisposable, к которому можно добавить этот класс. А изначально вариант был в Activity, где пришлось создавать новый CompositeDisposable и потом очищать.">
+      <created>1638381101432</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1638381101432</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.name" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -232,6 +274,9 @@
     <MESSAGE value="Сделан свой вариант словаря с использованием MVP, RxJava, Retrofit. Данные сетятся в адаптер с использованием DiffUtils&#10;- В качестве API выбран Yandex Api https://yandex.ru/dev/dictionary/doc/dg/concepts/api-overview.html, для которого получен Key.&#10;- Основные настройки, данные для подписи приложения, URL-BASE для retrofit-a, key для доступа к Api вынесены в apiconfig.properties" />
     <MESSAGE value="- Сделан свой вариант словаря с использованием MVP, RxJava, Retrofit. Данные сетятся в адаптер с использованием DiffUtils&#10;- В качестве API выбран Yandex Api https://yandex.ru/dev/dictionary/doc/dg/concepts/api-overview.html, для которого получен Key.&#10;- Основные настройки, данные для подписи приложения, URL-BASE для retrofit-a, key для доступа к Api вынесены в apiconfig.properties" />
     <MESSAGE value="переименовал" />
-    <option name="LAST_COMMIT_MESSAGE" value="переименовал" />
+    <MESSAGE value="- Избавился от интерфейсов для View и презентера, а также от самого презентера и ссылок на него&#10;- Добавил ViewModel, организовал получение данных через подпииску на лайвдату." />
+    <MESSAGE value="Реализация внедрения зависимостей через Dagger" />
+    <MESSAGE value="Реализация проверки на наличие связи с интернетом.&#10;- реализация через Observable класс и подписка на изменение сетевой конфигурации&#10;- добавление нового модуля в даггер для инжекции экземпляра класса&#10;- сделал такую реализацию, т.к. примеры с методички идут с deprecated методами и та реализация наверное скоро будет неактуальной :)&#10;- заинжектил через конструктор данный класс во вью модель, т.к. там уже есть compositeDisposable, к которому можно добавить этот класс. А изначально вариант был в Activity, где пришлось создавать новый CompositeDisposable и потом очищать." />
+    <option name="LAST_COMMIT_MESSAGE" value="Реализация проверки на наличие связи с интернетом.&#10;- реализация через Observable класс и подписка на изменение сетевой конфигурации&#10;- добавление нового модуля в даггер для инжекции экземпляра класса&#10;- сделал такую реализацию, т.к. примеры с методички идут с deprecated методами и та реализация наверное скоро будет неактуальной :)&#10;- заинжектил через конструктор данный класс во вью модель, т.к. там уже есть compositeDisposable, к которому можно добавить этот класс. А изначально вариант был в Activity, где пришлось создавать новый CompositeDisposable и потом очищать." />
   </component>
 </project>

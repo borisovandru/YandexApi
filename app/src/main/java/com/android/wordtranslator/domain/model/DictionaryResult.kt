@@ -1,11 +1,10 @@
 package com.android.wordtranslator.domain.model
 
+import com.android.wordtranslator.domain.model.ModelConstants.MODEL_DICTIONARY_ENTRY_LIST
 import com.google.gson.annotations.SerializedName
 
 data class DictionaryResult(
-    /**
-     *  Список словарных статей
-     */
-    @SerializedName("def")
+
+    @SerializedName(MODEL_DICTIONARY_ENTRY_LIST)
     val dictionaryEntryList: List<DictionaryEntry>
 )

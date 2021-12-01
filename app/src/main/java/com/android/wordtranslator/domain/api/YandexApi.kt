@@ -1,10 +1,10 @@
 package com.android.wordtranslator.domain.api
 
-import com.android.wordtranslator.BuildConfig
-import com.android.wordtranslator.domain.model.DictionaryResult
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
+import com.android.wordtranslator.BuildConfig
+import com.android.wordtranslator.domain.model.DictionaryResult
 
 interface YandexApi {
     /**

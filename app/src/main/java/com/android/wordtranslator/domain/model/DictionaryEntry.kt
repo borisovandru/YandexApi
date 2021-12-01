@@ -1,41 +1,30 @@
 package com.android.wordtranslator.domain.model
 
+import com.android.wordtranslator.domain.model.ModelConstants.MODEL_GENDER
+import com.android.wordtranslator.domain.model.ModelConstants.MODEL_NUM
+import com.android.wordtranslator.domain.model.ModelConstants.MODEL_PART_OF_SPEECH
+import com.android.wordtranslator.domain.model.ModelConstants.MODEL_TEXT
+import com.android.wordtranslator.domain.model.ModelConstants.MODEL_TRANSCRIPTION
+import com.android.wordtranslator.domain.model.ModelConstants.MODEL_TRANSLATES_LIST
 import com.google.gson.annotations.SerializedName
 
 data class DictionaryEntry(
-    /**
-     *  Род существительного
-     */
-    @SerializedName("gen")
+
+    @SerializedName(MODEL_GENDER)
     val gender: String = "",
 
-    /**
-     *  Часть речи
-     */
-    @SerializedName("pos")
+    @SerializedName(MODEL_PART_OF_SPEECH)
     val partOfSpeech: String = "",
 
-    /**
-     *  Текст статьи, перевода или синонима.
-     */
-    @SerializedName("text")
+    @SerializedName(MODEL_TEXT)
     val text: String = "",
 
-    /**
-     *  Список переводов
-     */
-    @SerializedName("tr")
+    @SerializedName(MODEL_TRANSLATES_LIST)
     val translatesList: List<Translation> = listOf(),
 
-    /**
-     *  Транскрипция искомого слова
-     */
-    @SerializedName("ts")
+    @SerializedName(MODEL_TRANSCRIPTION)
     val transcription: String = "",
 
-    /**
-     *  Число
-     */
-    @SerializedName("num")
+    @SerializedName(MODEL_NUM)
     val num: String = ""
 )
