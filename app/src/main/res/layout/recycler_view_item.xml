@@ -13,7 +13,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
-        android:textColor="#757575"
         tools:text="Header" />
 
     <TextView
@@ -30,12 +29,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
-        android:textColor="#757575"
         tools:text="Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/hairline"
-        android:layout_marginTop="@dimen/margin_small"
-        android:background="@color/color_gray" />
 </LinearLayout>

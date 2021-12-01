@@ -6,6 +6,7 @@ import okhttp3.Response
 import com.android.wordtranslator.BuildConfig
 
 object YandexApiInterceptor : Interceptor {
+
     private const val USER_NAME = "demo"
     private const val HEADER_NAME = "Authorization"
 

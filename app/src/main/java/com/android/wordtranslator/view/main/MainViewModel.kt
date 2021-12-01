@@ -1,28 +1,29 @@
 package com.android.wordtranslator.view.main
 
 import androidx.lifecycle.LiveData
-import com.android.wordtranslator.domain.model.AppState
-import com.android.wordtranslator.domain.repository.RepositoryImpl
-import com.android.wordtranslator.domain.repository.datasource.CacheDataSourceFactory
-import com.android.wordtranslator.domain.repository.datasource.NetworkDataSourceFactory
-import com.android.wordtranslator.viewmodel.BaseViewModel
 import io.reactivex.observers.DisposableObserver
+import com.android.wordtranslator.domain.model.AppState
+import com.android.wordtranslator.domain.scheduler.Schedulers
+import com.android.wordtranslator.viewmodel.BaseViewModel
+import javax.inject.Inject
 
-class MainViewModel(
-    private val interactor: MainInteractor = MainInteractor(
-        RepositoryImpl(
-            NetworkDataSourceFactory.create(),
-            CacheDataSourceFactory.create()
-        )
-    )
+class MainViewModel @Inject constructor(
+    private val interactor: MainInteractor,
+    private val schedulers: Schedulers
 ) : BaseViewModel<AppState>() {
+
     private var appState: AppState? = null
+
+    fun translateLiveData(): LiveData<AppState> {
+        return liveDataForViewToObserve
+    }
 
     override fun getData(word: String): LiveData<AppState> {
         compositeDisposable.add(
-            interactor.getData(word)
-                .subscribeOn(schedulerProvider.background())
-                .observeOn(schedulerProvider.main())
+            interactor
+                .getData(word, true)
+                .subscribeOn(schedulers.background())
+                .observeOn(schedulers.main())
                 .doOnSubscribe { liveDataForViewToObserve.postValue(AppState.Loading(null)) }
                 .subscribeWith(getObserver())
         )

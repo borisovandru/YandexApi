@@ -1,15 +1,16 @@
 package com.android.wordtranslator.domain.repository
 
 import com.android.wordtranslator.domain.model.DictionaryResult
-import com.android.wordtranslator.domain.repository.datasource.ICacheDataSource
-import com.android.wordtranslator.domain.repository.datasource.INetworkDataSource
+import com.android.wordtranslator.domain.repository.datasource.IDataSource
 import io.reactivex.Observable
+import javax.inject.Inject
 
-class RepositoryImpl(
-    private val cloud: INetworkDataSource,
-    private val cache: ICacheDataSource
-) : IRepository<DictionaryResult> {
+class RepositoryImpl @Inject constructor(
+
+    private val dataSource: IDataSource<DictionaryResult>,
+
+    ) : IRepository<DictionaryResult> {
 
     override fun getData(word: String): Observable<DictionaryResult> =
-        cloud.getData(word)
+        dataSource.getData(word)
 }
