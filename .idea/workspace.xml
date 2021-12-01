@@ -14,50 +14,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06550c20-4218-4b86-aa18-ceb68abc40b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ApplicationComponent.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/Qualifiers.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ViewModelFactory.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ViewModelKey.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/module/InteractorModule.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/module/RepositoryModule.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/module/ScreenModule.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/module/ViewModelModule.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/module/YandexApiModule.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/model/ModelConstants.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/IInteractor.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/module/NetworkModule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/utils/network/NetworkState.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/utils/network/NetworkStateObservable.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/AppTranslator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/AppTranslator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApi.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApiFactory.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApiInterceptor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApiInterceptor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/model/DictionaryEntry.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/model/DictionaryEntry.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/model/DictionaryResult.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/model/DictionaryResult.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/model/Examples.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/model/Examples.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/model/Mean.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/model/Mean.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/model/Synonym.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/model/Synonym.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/model/Translation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/model/Translation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/RepositoryFactory.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/RepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/RepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/CacheDataSourceFactory.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/CacheDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/CacheDataSourceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/ICacheDataSource.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/IDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/IDataSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/INetworkDataSource.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/NetworkDataSourceFactory.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/NetworkDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/NetworkDataSourceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/scheduler/DefaultSchedulers.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/scheduler/DefaultSchedulers.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/scheduler/SchedulerFactory.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/presenter/IInteractor.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ApplicationComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ApplicationComponent.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/base/BaseActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/base/BaseActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainInteractor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainInteractor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/BaseViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/BaseViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/recycler_view_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/recycler_view_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,6 +92,9 @@
     <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="borisovandru" />
     <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="TranslatorYandex" />
   </component>
+  <component name="KotlinCodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="ProjectId" id="21TAGDi4P7CJxtM6Y17Tl5WRmNA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -151,17 +125,18 @@
       <recent name="C:\Users\boris\GeekBrains\WordTranslator" />
     </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="com.android.wordtranslator.utils.network" />
       <recent name="com.android.wordtranslator.di.module" />
       <recent name="com.android.wordtranslator.viewmodel" />
       <recent name="com.android.wordtranslator.view.main" />
       <recent name="com.android.wordtranslator.domain" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.android.wordtranslator.utils.network" />
       <recent name="com.android.wordtranslator.view.main" />
       <recent name="com.android.wordtranslator.view" />
       <recent name="com.android.wordtranslator.domain.scheduler" />
       <recent name="com.android.wordtranslator.domain.model" />
-      <recent name="com.android.wordtranslator.domain.api" />
     </key>
   </component>
   <component name="RunManager">
@@ -268,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638304507017</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Реализация внедрения зависимостей через Dagger">
+      <created>1638375337496</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1638375337496</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -293,6 +275,7 @@
     <MESSAGE value="- Сделан свой вариант словаря с использованием MVP, RxJava, Retrofit. Данные сетятся в адаптер с использованием DiffUtils&#10;- В качестве API выбран Yandex Api https://yandex.ru/dev/dictionary/doc/dg/concepts/api-overview.html, для которого получен Key.&#10;- Основные настройки, данные для подписи приложения, URL-BASE для retrofit-a, key для доступа к Api вынесены в apiconfig.properties" />
     <MESSAGE value="переименовал" />
     <MESSAGE value="- Избавился от интерфейсов для View и презентера, а также от самого презентера и ссылок на него&#10;- Добавил ViewModel, организовал получение данных через подпииску на лайвдату." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Избавился от интерфейсов для View и презентера, а также от самого презентера и ссылок на него&#10;- Добавил ViewModel, организовал получение данных через подпииску на лайвдату." />
+    <MESSAGE value="Реализация внедрения зависимостей через Dagger" />
+    <option name="LAST_COMMIT_MESSAGE" value="Реализация внедрения зависимостей через Dagger" />
   </component>
 </project>
