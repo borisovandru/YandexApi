@@ -1,18 +1,15 @@
 package com.android.wordtranslator.domain.model
 
+import com.android.wordtranslator.domain.model.ModelConstants.MODEL_TEXT
+import com.android.wordtranslator.domain.model.ModelConstants.MODEL_TRANSLATES_LIST
 import com.google.gson.annotations.SerializedName
 
 data class Examples(
-    /**
-     *  Текст статьи, перевода или синонима.
-     */
-    @SerializedName("text")
+
+    @SerializedName(MODEL_TEXT)
     val text: String,
 
-    /**
-     *  Список переводов
-     */
-    @SerializedName("tr")
+    @SerializedName(MODEL_TRANSLATES_LIST)
     val translatesList: List<Translation>
 ) {
     override fun toString(): String {
