@@ -8,19 +8,14 @@ import com.android.wordtranslator.domain.model.ModelConstants.MODEL_TEXT
 import com.google.gson.annotations.SerializedName
 
 data class Synonym(
-
     @SerializedName(MODEL_FR)
     val fr: Int,
-
     @SerializedName(MODEL_GENDER)
     val gen: String,
-
     @SerializedName(MODEL_PART_OF_SPEECH)
     val pos: String,
-
     @SerializedName(MODEL_TEXT)
     val text: String,
-
     @SerializedName(MODEL_NUM)
     val num: String = ""
 )

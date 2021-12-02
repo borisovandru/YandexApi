@@ -6,11 +6,8 @@ import io.reactivex.Observable
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
-
     private val dataSource: IDataSource<DictionaryResult>,
-
-    ) : IRepository<DictionaryResult> {
-
+) : IRepository<DictionaryResult> {
     override fun getData(word: String): Observable<DictionaryResult> =
         dataSource.getData(word)
 }

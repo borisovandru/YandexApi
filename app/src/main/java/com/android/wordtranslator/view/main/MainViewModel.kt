@@ -18,14 +18,11 @@ class MainViewModel constructor(
     private val networkState: NetworkStateObservable,
     private val state: SavedStateHandle
 ) : BaseViewModel<AppState>() {
-
     companion object {
         private const val LAST_INPUT_WORD = "lastWord"
         private const val LOG_TAG = "SavedStateHandleTest"
-
         private const val TEXT_SAVE = "Save: "
         private const val TEXT_RESTORE = "Restore: "
-
         private const val DELAY_LOADING = 3L
     }
 
@@ -40,7 +37,6 @@ class MainViewModel constructor(
     }
 
     private var appState: AppState? = null
-
     fun translateLiveData(): LiveData<AppState> {
         return liveDataForViewToObserve
     }
@@ -69,7 +65,6 @@ class MainViewModel constructor(
                 }
                 .publish()
                 .connect()
-
         return super.getNetworkState()
     }
 

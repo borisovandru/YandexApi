@@ -21,16 +21,13 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class]
 )
 interface ApplicationComponent : AndroidInjector<AppTranslator> {
-
     @Component.Builder
     interface Builder {
-
         @BindsInstance
         fun withContext(context: Context): Builder
 
         @BindsInstance
         fun withSchedulers(schedulers: Schedulers): Builder
-
         fun build(): ApplicationComponent
     }
 }

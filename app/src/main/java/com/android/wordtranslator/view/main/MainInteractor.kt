@@ -14,7 +14,6 @@ class MainInteractor @Inject constructor(
     @Remote val repositoryRemote: IRepository<DictionaryResult>,
     @Local val repositoryLocal: IRepository<DictionaryResult>
 ) : IInteractor<AppState> {
-
     override fun getData(word: String, fromRemoteSource: Boolean): Observable<AppState> {
         return if (fromRemoteSource) {
             Log.d("translatorDebug", "repositoryRemote")

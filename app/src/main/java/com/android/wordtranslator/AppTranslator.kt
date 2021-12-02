@@ -6,7 +6,6 @@ import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 
 class AppTranslator : DaggerApplication() {
-
     override fun applicationInjector(): AndroidInjector<AppTranslator> =
         DaggerApplicationComponent
             .builder()

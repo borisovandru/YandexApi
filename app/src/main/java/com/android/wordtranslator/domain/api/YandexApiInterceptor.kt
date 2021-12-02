@@ -6,10 +6,8 @@ import okhttp3.Response
 import com.android.wordtranslator.BuildConfig
 
 object YandexApiInterceptor : Interceptor {
-
     private const val USER_NAME = "demo"
     private const val HEADER_NAME = "Authorization"
-
     private const val CODE_UNDEFINED_ERROR = 0
     private const val CODE_INFO = 1
     private const val CODE_SUCCESS = 2
@@ -17,9 +15,7 @@ object YandexApiInterceptor : Interceptor {
     private const val CODE_CLIENT_ERROR = 4
     private const val CODE_SERVER_ERROR = 5
     private const val RESPONSE_CODE_DIVIDER = 100
-
     private var responseCode: Int = CODE_UNDEFINED_ERROR
-
     override fun intercept(chain: Interceptor.Chain): Response {
         val response = chain.proceed(
             chain.request()

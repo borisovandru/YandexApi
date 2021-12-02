@@ -12,54 +12,39 @@ import com.android.wordtranslator.domain.model.ModelConstants.MODEL_TEXT
 import com.google.gson.annotations.SerializedName
 
 data class Translation(
-
     @SerializedName(MODEL_ASP)
     val asp: String?,
-
     @SerializedName(MODEL_EXAMPLE_LIST)
     val examplesList: List<Examples>?,
-
     @SerializedName(MODEL_FR)
     val fr: Int,
-
     @SerializedName(MODEL_GENDER)
     val gen: String?,
-
     @SerializedName(MODEL_MEAN_LIST)
     val meanList: List<Mean> = listOf(),
-
     @SerializedName(MODEL_NUM)
     val num: String?,
-
     @SerializedName(MODEL_PART_OF_SPEECH)
     val pos: String = "",
-
     @SerializedName(MODEL_SYNONYM_LIST)
     val synonymList: List<Synonym> = listOf(),
-
     @SerializedName(MODEL_TEXT)
     val text: String = ""
 ) {
     override fun toString(): String {
-
         var result: String = this.text
-
         this.num?.let {
             result += ", ${this.num} ч."
         }
-
         this.gen?.let {
             result += ", ${this.gen} род."
         }
-
         this.asp?.let {
             result += ", ${this.asp}"
         }
-
         examplesList?.let {
             result += "\n[" + it.joinToString(separator = ",\n") + "]"
         }
-
         return result
     }
 }

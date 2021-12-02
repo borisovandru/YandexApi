@@ -26,20 +26,15 @@ import com.android.wordtranslator.view.main.adapter.WordAdapter
 import javax.inject.Inject
 
 class MainActivity : BaseActivity<AppState, MainInteractor>(), WordAdapter.Delegate {
-
     companion object {
         private const val INPUT_METHOD_MANAGER_FLAGS = 0
     }
 
     @Inject
     lateinit var assistedFactory: MainViewModelAssistedFactory
-
     override lateinit var model: MainViewModel
-
     private val binding: ActivityMainBinding by viewBinding()
-
     private val wordAdapter by lazy { WordAdapter(this) }
-
     private val textWatcher = object : TextWatcher {
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
             if (binding.searchEditText.text != null && binding.searchEditText.text.toString()
@@ -54,23 +49,18 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), WordAdapter.Deleg
         }
 
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-
         override fun afterTextChanged(s: Editable) {}
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewModelFactory = assistedFactory.create(this)
-
         model = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
-
         model.networkStateLiveData().observe(this@MainActivity, Observer<Boolean> {
             isNetworkAvailable = it
         })
         model.getNetworkState()
-
         model.translateLiveData().observe(this@MainActivity, Observer<AppState> { renderData(it) })
-
         init()
     }
 
@@ -100,12 +90,10 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), WordAdapter.Deleg
                     false
                 }
             }
-
             clearText.setOnClickListener {
                 binding.searchEditText.setText("")
                 wordAdapter.clear()
             }
-
             find.isEnabled = false
             find.setOnClickListener {
                 if (isNetworkAvailable) {
@@ -117,7 +105,6 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), WordAdapter.Deleg
                     noInternetMessageShow()
                 }
             }
-
             with(mainActivityRecyclerview) {
                 layoutManager =
                     LinearLayoutManager(applicationContext)
@@ -225,11 +212,6 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), WordAdapter.Deleg
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         model.getLastWord().let {
-            /**
-             * Состояние и так восстанавливается. Но можно перепослать запрос, чтобы
-             * получить актуальные данные, если расскоментировать код ниже:
-             * //model.getData(it)
-             */
         }
     }
 }
