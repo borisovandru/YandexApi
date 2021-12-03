@@ -18,21 +18,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.android.wordtranslator.R
 import com.android.wordtranslator.databinding.ActivityMainBinding
-import com.android.wordtranslator.di.MainViewModelAssistedFactory
 import com.android.wordtranslator.domain.model.AppState
 import com.android.wordtranslator.domain.model.DictionaryEntry
 import com.android.wordtranslator.view.base.BaseActivity
 import com.android.wordtranslator.view.main.adapter.WordAdapter
-import javax.inject.Inject
+import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
 class MainActivity : BaseActivity<AppState, MainInteractor>(), WordAdapter.Delegate {
     companion object {
         private const val INPUT_METHOD_MANAGER_FLAGS = 0
     }
 
-    @Inject
-    lateinit var assistedFactory: MainViewModelAssistedFactory
-    override lateinit var model: MainViewModel
+    override val model: MainViewModel by stateViewModel()
     private val binding: ActivityMainBinding by viewBinding()
     private val wordAdapter by lazy { WordAdapter(this) }
     private val textWatcher = object : TextWatcher {
@@ -54,8 +51,6 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), WordAdapter.Deleg
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModelFactory = assistedFactory.create(this)
-        model = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
         model.networkStateLiveData().observe(this@MainActivity, Observer<Boolean> {
             isNetworkAvailable = it
         })
@@ -206,7 +201,6 @@ class MainActivity : BaseActivity<AppState, MainInteractor>(), WordAdapter.Deleg
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         model.saveLastWord(binding.searchEditText.text.toString())
-        outState.putString("TEST", "TESTVALUE")
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {

@@ -8,9 +8,8 @@ import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.MainThreadDisposable
 import io.reactivex.disposables.Disposable
-import javax.inject.Inject
 
-class NetworkStateObservable @Inject constructor(
+class NetworkStateObservable(
     private val context: Context
 ) : Observable<NetworkState>() {
     override fun subscribeActual(observer: Observer<in NetworkState>) {
