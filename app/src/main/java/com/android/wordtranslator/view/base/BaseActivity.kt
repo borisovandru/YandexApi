@@ -1,14 +1,14 @@
 package com.android.wordtranslator.view.base
 
-import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.wordtranslator.R
 import com.android.wordtranslator.domain.model.AppState
+import com.android.wordtranslator.domain.model.DictionaryResult
 import com.android.wordtranslator.viewmodel.BaseViewModel
 import com.android.wordtranslator.viewmodel.IInteractor
 
-abstract class BaseActivity<T : AppState, I : IInteractor<T>> :
+abstract class BaseActivity<T : AppState, I : IInteractor<DictionaryResult>> :
     AppCompatActivity(R.layout.activity_main) {
     protected var isNetworkAvailable: Boolean = false
     abstract val model: BaseViewModel<T>

@@ -14,27 +14,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06550c20-4218-4b86-aa18-ceb68abc40b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/Di.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/AppTranslator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/AppTranslator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ApplicationComponent.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/MainViewModelAssistedFactory.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/MainViewModelFactory.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/Qualifiers.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/module/InteractorModule.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/module/NetworkModule.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/module/RepositoryModule.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/module/ScreenModule.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/module/YandexApiModule.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/Di.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/Di.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApiInterceptor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApiInterceptor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/IRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/IRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/RepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/RepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/CacheDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/CacheDataSourceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/IDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/IDataSource.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/NetworkDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/NetworkDataSourceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/utils/network/NetworkStateObservable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/utils/network/NetworkStateObservable.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/scheduler/DefaultSchedulers.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/scheduler/Schedulers.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/base/BaseActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/base/BaseActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainInteractor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainInteractor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/BaseViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/BaseViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/IInteractor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/IInteractor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -273,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638464740249</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Внедрение Koin и избавление от Dagger&#10;- Вместо &quot;by viewModel&quot; пришлось использовать &quot;by stateViewModel()&quot; для передачи во ViewModel параметра типа SavedStateHandle, для того чтобы остался функционал по сохранению состояния из предыдущей ДЗ (Имплементируйте сохранение состояния приложения во ViewMode). Этот параметр можно передавать в конструктор ViewModel. Но при использовании с Dagger было сложно найти решение, а в Koin это делается элементарно">
+      <created>1638562413188</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1638562413188</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -301,6 +305,7 @@
     <MESSAGE value="Реализация внедрения зависимостей через Dagger" />
     <MESSAGE value="Реализация проверки на наличие связи с интернетом.&#10;- реализация через Observable класс и подписка на изменение сетевой конфигурации&#10;- добавление нового модуля в даггер для инжекции экземпляра класса&#10;- сделал такую реализацию, т.к. примеры с методички идут с deprecated методами и та реализация наверное скоро будет неактуальной :)&#10;- заинжектил через конструктор данный класс во вью модель, т.к. там уже есть compositeDisposable, к которому можно добавить этот класс. А изначально вариант был в Activity, где пришлось создавать новый CompositeDisposable и потом очищать." />
     <MESSAGE value="code styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="code styles" />
+    <MESSAGE value="Внедрение Koin и избавление от Dagger&#10;- Вместо &quot;by viewModel&quot; пришлось использовать &quot;by stateViewModel()&quot; для передачи во ViewModel параметра типа SavedStateHandle, для того чтобы остался функционал по сохранению состояния из предыдущей ДЗ (Имплементируйте сохранение состояния приложения во ViewMode). Этот параметр можно передавать в конструктор ViewModel. Но при использовании с Dagger было сложно найти решение, а в Koin это делается элементарно" />
+    <option name="LAST_COMMIT_MESSAGE" value="Внедрение Koin и избавление от Dagger&#10;- Вместо &quot;by viewModel&quot; пришлось использовать &quot;by stateViewModel()&quot; для передачи во ViewModel параметра типа SavedStateHandle, для того чтобы остался функционал по сохранению состояния из предыдущей ДЗ (Имплементируйте сохранение состояния приложения во ViewMode). Этот параметр можно передавать в конструктор ViewModel. Но при использовании с Dagger было сложно найти решение, а в Koin это делается элементарно" />
   </component>
 </project>

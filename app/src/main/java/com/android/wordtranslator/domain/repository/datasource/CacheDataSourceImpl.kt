@@ -1,9 +1,13 @@
 package com.android.wordtranslator.domain.repository.datasource
 
 import com.android.wordtranslator.domain.model.DictionaryResult
-import io.reactivex.Observable
 
 class CacheDataSourceImpl : IDataSource<DictionaryResult> {
-    override fun getData(word: String): Observable<DictionaryResult> =
-        Observable.error(Exception("Локальный источник данных еще не реализован"))
+    companion object {
+        private const val ERROR_MESSAGE =
+            "Локальный источник данных еще не реализован.\nПопросите разработчика реализовать :)"
+    }
+
+    override suspend fun getData(word: String): DictionaryResult =
+        throw Exception(ERROR_MESSAGE)
 }
