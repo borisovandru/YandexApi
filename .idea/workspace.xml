@@ -14,15 +14,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06550c20-4218-4b86-aa18-ceb68abc40b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/MainViewModelAssistedFactory.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/MainViewModelFactory.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ApplicationComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ApplicationComponent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ViewModelFactory.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/ViewModelKey.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/module/ViewModelModule.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/Di.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/Di.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApiInterceptor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApiInterceptor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/IRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/IRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/RepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/RepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/CacheDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/CacheDataSourceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/IDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/IDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/NetworkDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/NetworkDataSourceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/scheduler/DefaultSchedulers.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/scheduler/Schedulers.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/base/BaseActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/base/BaseActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainInteractor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainInteractor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/BaseViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/BaseViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/IInteractor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/IInteractor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,12 +115,15 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Properties" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Suggestions" />
+    <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="ics" />
   </component>
   <component name="PsdUISettings">
+    <option name="MODULE_TAB" value="Properties" />
+    <option name="BUILD_VARIANTS_TAB" value="Build Types" />
+    <option name="LAST_EDITED_SIGNING_CONFIG" value="debug" />
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
@@ -250,7 +263,21 @@
       <option name="project" value="LOCAL" />
       <updated>1638381101432</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="code styles">
+      <created>1638464740249</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1638464740249</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Внедрение Koin и избавление от Dagger&#10;- Вместо &quot;by viewModel&quot; пришлось использовать &quot;by stateViewModel()&quot; для передачи во ViewModel параметра типа SavedStateHandle, для того чтобы остался функционал по сохранению состояния из предыдущей ДЗ (Имплементируйте сохранение состояния приложения во ViewMode). Этот параметр можно передавать в конструктор ViewModel. Но при использовании с Dagger было сложно найти решение, а в Koin это делается элементарно">
+      <created>1638562413188</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1638562413188</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -277,6 +304,8 @@
     <MESSAGE value="- Избавился от интерфейсов для View и презентера, а также от самого презентера и ссылок на него&#10;- Добавил ViewModel, организовал получение данных через подпииску на лайвдату." />
     <MESSAGE value="Реализация внедрения зависимостей через Dagger" />
     <MESSAGE value="Реализация проверки на наличие связи с интернетом.&#10;- реализация через Observable класс и подписка на изменение сетевой конфигурации&#10;- добавление нового модуля в даггер для инжекции экземпляра класса&#10;- сделал такую реализацию, т.к. примеры с методички идут с deprecated методами и та реализация наверное скоро будет неактуальной :)&#10;- заинжектил через конструктор данный класс во вью модель, т.к. там уже есть compositeDisposable, к которому можно добавить этот класс. А изначально вариант был в Activity, где пришлось создавать новый CompositeDisposable и потом очищать." />
-    <option name="LAST_COMMIT_MESSAGE" value="Реализация проверки на наличие связи с интернетом.&#10;- реализация через Observable класс и подписка на изменение сетевой конфигурации&#10;- добавление нового модуля в даггер для инжекции экземпляра класса&#10;- сделал такую реализацию, т.к. примеры с методички идут с deprecated методами и та реализация наверное скоро будет неактуальной :)&#10;- заинжектил через конструктор данный класс во вью модель, т.к. там уже есть compositeDisposable, к которому можно добавить этот класс. А изначально вариант был в Activity, где пришлось создавать новый CompositeDisposable и потом очищать." />
+    <MESSAGE value="code styles" />
+    <MESSAGE value="Внедрение Koin и избавление от Dagger&#10;- Вместо &quot;by viewModel&quot; пришлось использовать &quot;by stateViewModel()&quot; для передачи во ViewModel параметра типа SavedStateHandle, для того чтобы остался функционал по сохранению состояния из предыдущей ДЗ (Имплементируйте сохранение состояния приложения во ViewMode). Этот параметр можно передавать в конструктор ViewModel. Но при использовании с Dagger было сложно найти решение, а в Koin это делается элементарно" />
+    <option name="LAST_COMMIT_MESSAGE" value="Внедрение Koin и избавление от Dagger&#10;- Вместо &quot;by viewModel&quot; пришлось использовать &quot;by stateViewModel()&quot; для передачи во ViewModel параметра типа SavedStateHandle, для того чтобы остался функционал по сохранению состояния из предыдущей ДЗ (Имплементируйте сохранение состояния приложения во ViewMode). Этот параметр можно передавать в конструктор ViewModel. Но при использовании с Dagger было сложно найти решение, а в Koin это делается элементарно" />
   </component>
 </project>

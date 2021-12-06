@@ -1,16 +1,24 @@
 package com.android.wordtranslator
 
-import com.android.wordtranslator.di.DaggerApplicationComponent
-import com.android.wordtranslator.domain.scheduler.DefaultSchedulers
-import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
+import android.app.Application
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
+import com.android.wordtranslator.di.Di
 
-class AppTranslator : DaggerApplication() {
-
-    override fun applicationInjector(): AndroidInjector<AppTranslator> =
-        DaggerApplicationComponent
-            .builder()
-            .withContext(applicationContext)
-            .withSchedulers(DefaultSchedulers())
-            .build()
+class AppTranslator : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        startKoin {
+            androidContext(this@AppTranslator)
+            modules(
+                listOf(
+                    Di.viewModelModule(),
+                    Di.interactorModule(),
+                    Di.networkModule(),
+                    Di.repositoryModule(),
+                    Di.yandexApiModule()
+                )
+            )
+        }
+    }
 }

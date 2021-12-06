@@ -11,7 +11,6 @@ import com.android.wordtranslator.domain.model.DictionaryEntry
 class WordAdapter(
     private val delegate: Delegate?
 ) : RecyclerView.Adapter<WordViewHolder>() {
-
     interface Delegate {
         /**
          * Событие наступает при выборе
@@ -22,7 +21,6 @@ class WordAdapter(
     }
 
     private val data = ArrayList<DictionaryEntry>()
-
     fun setData(newList: ArrayList<DictionaryEntry>) {
         val result = DiffUtil.calculateDiff(DiffUtilCallback(this.data, newList))
         result.dispatchUpdatesTo(this)
@@ -54,11 +52,8 @@ class WordAdapter(
         private var oldItems: ArrayList<DictionaryEntry>,
         private var newItems: ArrayList<DictionaryEntry>
     ) : DiffUtil.Callback() {
-
         override fun getOldListSize(): Int = oldItems.size
-
         override fun getNewListSize(): Int = newItems.size
-
         override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
             oldItems[oldItemPosition].partOfSpeech == newItems[newItemPosition].partOfSpeech
 

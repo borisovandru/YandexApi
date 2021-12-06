@@ -7,16 +7,12 @@ import com.android.wordtranslator.domain.model.ModelConstants.MODEL_TEXT
 import com.google.gson.annotations.SerializedName
 
 data class Mean(
-
     @SerializedName(MODEL_TEXT)
     val text: String,
-
     @SerializedName(MODEL_GENDER)
     val gender: String = "",
-
     @SerializedName(MODEL_PART_OF_SPEECH)
     val partOfSpeech: String = "",
-
     @SerializedName(MODEL_NUM)
     val num: String = ""
 )

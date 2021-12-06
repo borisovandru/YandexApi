@@ -9,22 +9,16 @@ import com.android.wordtranslator.domain.model.ModelConstants.MODEL_TRANSLATES_L
 import com.google.gson.annotations.SerializedName
 
 data class DictionaryEntry(
-
     @SerializedName(MODEL_GENDER)
     val gender: String = "",
-
     @SerializedName(MODEL_PART_OF_SPEECH)
     val partOfSpeech: String = "",
-
     @SerializedName(MODEL_TEXT)
     val text: String = "",
-
     @SerializedName(MODEL_TRANSLATES_LIST)
     val translatesList: List<Translation> = listOf(),
-
     @SerializedName(MODEL_TRANSCRIPTION)
     val transcription: String = "",
-
     @SerializedName(MODEL_NUM)
     val num: String = ""
 )

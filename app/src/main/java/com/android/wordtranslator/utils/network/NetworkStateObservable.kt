@@ -8,12 +8,10 @@ import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.MainThreadDisposable
 import io.reactivex.disposables.Disposable
-import javax.inject.Inject
 
-class NetworkStateObservable @Inject constructor(
+class NetworkStateObservable(
     private val context: Context
 ) : Observable<NetworkState>() {
-
     override fun subscribeActual(observer: Observer<in NetworkState>) {
         val listener = NetworkStateListener(context, observer)
         observer.onSubscribe(listener)
@@ -23,13 +21,11 @@ class NetworkStateObservable @Inject constructor(
         private val context: Context,
         private val observer: Observer<in NetworkState>
     ) : ConnectivityManager.NetworkCallback(), Disposable {
-
         private val disposable = object : MainThreadDisposable() {
             override fun onDispose() {
                 connectivityManager.unregisterNetworkCallback(this@NetworkStateListener)
             }
         }
-
         private val connectivityManager: ConnectivityManager by lazy {
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         }
@@ -52,7 +48,6 @@ class NetworkStateObservable @Inject constructor(
         }
 
         override fun dispose() = disposable.dispose()
-
         override fun isDisposed(): Boolean = disposable.isDisposed
     }
 }

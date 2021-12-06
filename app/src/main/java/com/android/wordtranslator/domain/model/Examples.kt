@@ -5,10 +5,8 @@ import com.android.wordtranslator.domain.model.ModelConstants.MODEL_TRANSLATES_L
 import com.google.gson.annotations.SerializedName
 
 data class Examples(
-
     @SerializedName(MODEL_TEXT)
     val text: String,
-
     @SerializedName(MODEL_TRANSLATES_LIST)
     val translatesList: List<Translation>
 ) {

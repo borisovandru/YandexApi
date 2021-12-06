@@ -1,7 +1,6 @@
 package com.android.wordtranslator.domain.model
 
 object ModelConstants {
-
     /**
      *  Род существительного
      */
