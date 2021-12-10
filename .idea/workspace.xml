@@ -14,24 +14,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06550c20-4218-4b86-aa18-ceb68abc40b5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainScreen.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_bottom_menu_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_12_2021_22_32__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_12_2021_22_32__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_11_2021_23_28_[Default_Changelist]/pack-137e42220b77430ddebfcb13bc1a580e06f6b629.idx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_11_2021_23_28_[Default_Changelist]/pack-137e42220b77430ddebfcb13bc1a580e06f6b629.pack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_11_2021_23_28_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_11_2021_23_28__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/AppTranslator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/AppTranslator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/Di.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/Di.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApi.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApiInterceptor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/api/YandexApiInterceptor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/IRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/IRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/RepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/RepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/CacheDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/CacheDataSourceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/IDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/IDataSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/NetworkDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/repository/datasource/NetworkDataSourceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/scheduler/DefaultSchedulers.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/domain/scheduler/Schedulers.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/base/BaseActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/base/BaseActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainInteractor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainInteractor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/base/BaseActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/base/BaseFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainActivity.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/adapter/WordViewHolder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/adapter/WordViewHolder.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/BaseViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/BaseViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/IInteractor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/viewmodel/IInteractor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/recycler_view_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/recycler_view_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,10 +69,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile" />
         <option value="valueResourceFile" />
-        <option value="resourceFile" />
         <option value="Kotlin Class" />
+        <option value="layoutResourceFile" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>

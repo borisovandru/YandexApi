@@ -23,6 +23,9 @@ import com.android.wordtranslator.domain.repository.datasource.NetworkDataSource
 import com.android.wordtranslator.utils.network.NetworkStateObservable
 import com.android.wordtranslator.view.main.MainInteractor
 import com.android.wordtranslator.view.main.MainViewModel
+import com.github.terrakok.cicerone.Cicerone
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
 
 object Di {
     private const val LOCAL = "LOCAL"
@@ -32,7 +35,6 @@ object Di {
             MainViewModel(
                 interactor = get(),
                 networkState = get(),
-                state = get()
             )
         }
     }
@@ -92,6 +94,18 @@ object Di {
                 .addConverterFactory(GsonConverterFactory.create(get()))
                 .build()
                 .create(YandexApi::class.java)
+        }
+    }
+
+    fun navigationModule() = module {
+        single<Cicerone<Router>> {
+            Cicerone.create()
+        }
+        single<NavigatorHolder> {
+            get<Cicerone<Router>>().getNavigatorHolder()
+        }
+        single<Router> {
+            get<Cicerone<Router>>().router
         }
     }
 }
