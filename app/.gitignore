@@ -1,1 +1,8 @@
 /build
+/idea/
+/objects/
+/refs/
+apiconfig.properties
+config
+HEAD
+local.properties
