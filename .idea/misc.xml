@@ -3,11 +3,32 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/drawable/ic_bottom_menu_favourite.xml" value="0.22" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/drawable/ic_bottom_menu_history.xml" value="0.2" />
         <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/drawable/ic_bottom_menu_main.xml" value="0.20185185185185187" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/drawable/ic_delete.xml" value="0.22" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/drawable/ic_favourite_no.xml" value="0.18" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/drawable/ic_favourite_yes.xml" value="0.18" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/drawable/ic_no_image.xml" value="0.18981481481481483" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/drawable/ic_place_holder_image.xml" value="0.2" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/drawable/ic_search.xml" value="0.22" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/drawable/nav_view_bottom_item_background.xml" value="0.2" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/drawable/nav_view_bottom_item_text_color.xml" value="0.16" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/drawable/nav_view_item_background.xml" value="0.2" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/drawable/nav_view_shape_color.xml" value="0.22" />
         <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/layout/dialog_find_in_history.xml" value="0.1" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/layout/fragment_detail.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/layout/fragment_favourite.xml" value="0.1" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/layout/fragment_history.xml" value="0.14722222222222223" />
         <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/layout/fragment_main.xml" value="0.15925925925925927" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/layout/history_item.xml" value="0.1" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/layout/main_item.xml" value="0.14722222222222223" />
         <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/layout/recycler_view_item.xml" value="0.22" />
         <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/menu/bottom_nav_menu.xml" value="0.15925925925925927" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/menu/favourite_menu.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/menu/history_menu.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/menu/main_menu.xml" value="0.14722222222222223" />
         <entry key="..\:/Users/boris/GeekBrains/WordTranslator/app/src/main/res/drawable/ic_clear.xml" value="0.22" />
         <entry key="..\:/Users/boris/GeekBrains/WordTranslator/app/src/main/res/drawable/ic_find.xml" value="0.22" />
         <entry key="..\:/Users/boris/GeekBrains/WordTranslator/app/src/main/res/drawable/ic_launcher_background.xml" value="0.16574074074074074" />

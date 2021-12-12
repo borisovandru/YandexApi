@@ -8,6 +8,8 @@ import com.github.terrakok.cicerone.androidx.AppNavigator
 import org.koin.android.ext.android.inject
 import com.android.wordtranslator.R
 import com.android.wordtranslator.databinding.ActivityMainBinding
+import com.android.wordtranslator.view.favourite.FavouriteScreen
+import com.android.wordtranslator.view.history.HistoryScreen
 import com.android.wordtranslator.view.main.MainScreen
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +29,15 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_main -> {
-                    router.replaceScreen(MainScreen())
+                    router.navigateTo(MainScreen())
+                    true
+                }
+                R.id.navigation_history -> {
+                    router.navigateTo(HistoryScreen())
+                    true
+                }
+                R.id.navigation_favourite -> {
+                    router.navigateTo(FavouriteScreen())
                     true
                 }
                 else -> false

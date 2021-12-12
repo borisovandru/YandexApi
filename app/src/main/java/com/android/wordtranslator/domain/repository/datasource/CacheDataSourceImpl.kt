@@ -1,13 +1,51 @@
 package com.android.wordtranslator.domain.repository.datasource
 
-import com.android.wordtranslator.domain.model.DictionaryResult
+import com.android.wordtranslator.domain.storage.WordStorage
+import com.android.wordtranslator.domain.storage.entity.WordFavourite
+import com.android.wordtranslator.domain.storage.entity.WordTranslate
 
-class CacheDataSourceImpl : IDataSource<DictionaryResult> {
-    companion object {
-        private const val ERROR_MESSAGE =
-            "Локальный источник данных еще не реализован.\nПопросите разработчика реализовать :)"
+class CacheDataSourceImpl(private val wordStorage: WordStorage) : IDataSourceLocal {
+
+    override suspend fun saveToDB(word: WordTranslate) {
+        wordStorage
+            .wordDao()
+            .insertWordToHistory(word)
     }
 
-    override suspend fun getData(word: String): DictionaryResult =
-        throw Exception(ERROR_MESSAGE)
+    override suspend fun saveToDB(words: List<WordTranslate>) {
+        wordStorage
+            .wordDao()
+            .insertWordsToHistory(words)
+    }
+
+    override suspend fun fetchHistory(): List<WordTranslate> =
+        wordStorage
+            .wordDao()
+            .fetchHistory()
+
+    override suspend fun findInHistoryByWord(word: String): WordTranslate =
+        wordStorage
+            .wordDao()
+            .findInHistoryByWord(word)
+
+    override suspend fun fetchFavourite(): List<WordFavourite> =
+        wordStorage
+            .wordDao()
+            .fetchFavourite()
+
+    override suspend fun insertWordToFavourite(word: WordFavourite): Long =
+        wordStorage
+            .wordDao()
+            .insertWordToFavourite(word)
+
+    override suspend fun clearFavourite(): Int =
+        wordStorage
+            .wordDao()
+            .clearFavourite()
+
+    override suspend fun clearHistory(): Int =
+        wordStorage
+            .wordDao()
+            .clearHistory()
+
 }

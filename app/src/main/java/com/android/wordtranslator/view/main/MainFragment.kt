@@ -1,10 +1,12 @@
 package com.android.wordtranslator.view.main
 
+import android.app.AlertDialog
 import android.content.Context.INPUT_METHOD_SERVICE
+import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
+import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
@@ -14,24 +16,32 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import by.kirich1409.viewbindingdelegate.viewBinding
+import com.github.terrakok.cicerone.Router
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.android.wordtranslator.R
 import com.android.wordtranslator.databinding.FragmentMainBinding
 import com.android.wordtranslator.domain.model.AppState
-import com.android.wordtranslator.domain.model.DictionaryEntry
-import com.android.wordtranslator.view.base.BaseFragment
+import com.android.wordtranslator.domain.model.DictionaryResult
+import com.android.wordtranslator.domain.storage.entity.WordTranslate
+import com.android.wordtranslator.utils.mapToListWordTranslate
+import com.android.wordtranslator.view.detail.DetailScreen
 import com.android.wordtranslator.view.main.adapter.WordAdapter
 
-class MainFragment : BaseFragment<AppState, MainInteractor>(), WordAdapter.Delegate {
+class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
+
     companion object {
         private const val INPUT_METHOD_MANAGER_FLAGS = 0
+
         fun newInstance(): Fragment = MainFragment()
     }
 
-    private val binding: FragmentMainBinding by viewBinding()
-    override val model: MainViewModel by viewModel()
+    private var isNetworkAvailable: Boolean = false
+    private lateinit var binding: FragmentMainBinding
+    private val model: MainViewModel by viewModel()
+    private val router: Router by inject()
     private val wordAdapter by lazy { WordAdapter(this) }
+
     private val textWatcher = object : TextWatcher {
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
             if (binding.searchEditText.text != null && binding.searchEditText.text.toString()
@@ -49,14 +59,48 @@ class MainFragment : BaseFragment<AppState, MainInteractor>(), WordAdapter.Deleg
         override fun afterTextChanged(s: Editable) {}
     }
 
+    private fun noInternetMessageShow() {
+        showMessage {
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.no_internet_message),
+                Toast.LENGTH_LONG
+            )
+                .show()
+        }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentMainBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        model.networkStateLiveData().observe(viewLifecycleOwner, Observer<Boolean> {
-            isNetworkAvailable = it
-        })
-        model.getNetworkState()
-        model.translateLiveData().observe(viewLifecycleOwner, Observer<AppState> { renderData(it) })
+        setHasOptionsMenu(true)
+
+        /**
+         * Без этого кода и без model.reset() у меня начинаются задвоения и затроения
+         * т.е. если сделать поиск в истории и нажать назад, то первый раз переходим.
+         * После второго поиска, нужно нажать 2 раза, потом 3 и т.д. чтобы вернуться на стартовый
+         * экран. Как я понял у меня не вызывается метод у вьюмодели onCleared. Проблема вроде
+         * решена, теперь все стабильно. Но надо разобраться в чем дело или лучше использовать
+         * гугловскую навигацию.
+         */
+        model.networkStateLiveData().removeObservers(requireActivity())
+        model.translateLiveData().removeObservers(requireActivity())
+        model.findHistoryLiveData().removeObservers(requireActivity())
+        model.getNetworkState().removeObservers(requireActivity())
         init()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        model.reset()
     }
 
     private fun init() {
@@ -82,10 +126,12 @@ class MainFragment : BaseFragment<AppState, MainInteractor>(), WordAdapter.Deleg
                     false
                 }
             }
+
             clearText.setOnClickListener {
                 binding.searchEditText.setText("")
                 wordAdapter.clear()
             }
+
             find.isEnabled = false
             find.setOnClickListener {
                 if (isNetworkAvailable) {
@@ -97,7 +143,8 @@ class MainFragment : BaseFragment<AppState, MainInteractor>(), WordAdapter.Deleg
                     noInternetMessageShow()
                 }
             }
-            with(mainActivityRecyclerview) {
+
+            with(mainRv) {
                 layoutManager =
                     LinearLayoutManager(requireContext())
                 adapter = wordAdapter
@@ -110,7 +157,158 @@ class MainFragment : BaseFragment<AppState, MainInteractor>(), WordAdapter.Deleg
                 )
             }
         }
+
+        model.networkStateLiveData().observe(requireActivity(), Observer<Boolean> {
+            isNetworkAvailable = it
+        })
+        model.getNetworkState()
+        model.translateLiveData().observe(requireActivity(), Observer<AppState> {
+            when (it) {
+                is AppState.Success -> {
+                    if (it.data == null || (it.data as DictionaryResult).dictionaryEntryList.isEmpty()) {
+                        showErrorScreen(getString(R.string.empty_server_response_on_success))
+                    } else {
+                        showViewSuccess()
+                        wordAdapter.setData(ArrayList(mapToListWordTranslate(it.data)))
+                        model.saveToHistory(it.data)
+                    }
+                }
+                is AppState.Loading -> {
+                    showViewLoading()
+                    with(binding) {
+                        if (it.progress != null) {
+                            progressBarHorizontal.isVisible = true
+                            progressBarRound.isVisible = false
+                            progressBarHorizontal.progress = it.progress
+                        } else {
+                            progressBarHorizontal.isVisible = false
+                            progressBarRound.isVisible = true
+                        }
+                    }
+                }
+                is AppState.Error -> {
+                    showErrorScreen(it.error.message)
+                }
+            }
+        })
+
+        model.findHistoryLiveData().observe(requireActivity(), Observer<AppState>
+        {
+            when (it) {
+                is AppState.Success -> {
+                    if (it?.data != null) {
+                        router.navigateTo(
+                            DetailScreen(word = (it.data as WordTranslate))
+                        )
+                    }
+                }
+                is AppState.Loading -> {
+                    showViewLoading()
+                    with(binding) {
+                        if (it.progress != null) {
+                            progressBarHorizontal.isVisible = true
+                            progressBarRound.isVisible = false
+                            progressBarHorizontal.progress = it.progress
+                        } else {
+                            progressBarHorizontal.isVisible = false
+                            progressBarRound.isVisible = true
+                        }
+                    }
+                }
+                is AppState.Error -> {
+                    binding.loadingFrame.isVisible = false
+                    showMessage {
+                        Toast.makeText(
+                            requireContext(),
+                            it.error.message.toString(),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        })
+
+        model.favouriteLiveData().observe(requireActivity(), Observer<AppState> {
+            when (it) {
+                is AppState.Success -> {
+                    if ((it?.data as Long) > 0) {
+                        showViewSuccess()
+                        showMessage {
+                            Toast.makeText(
+                                requireContext(),
+                                getString(R.string.success_added_to_favourite),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                }
+                is AppState.Loading -> {
+                    showViewLoading()
+                    with(binding) {
+                        if (it.progress != null) {
+                            progressBarHorizontal.isVisible = true
+                            progressBarRound.isVisible = false
+                            progressBarHorizontal.progress = it.progress
+                        } else {
+                            progressBarHorizontal.isVisible = false
+                            progressBarRound.isVisible = true
+                        }
+                    }
+                }
+                is AppState.Error -> {
+                    binding.loadingFrame.isVisible = false
+                    showMessage {
+                        Toast.makeText(
+                            requireContext(),
+                            it.error.message.toString(),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        })
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.main_menu, menu)
+    }
+
+    private fun search() {
+        val inflater: LayoutInflater = requireActivity().getLayoutInflater()
+        val mView: View = inflater.inflate(R.layout.dialog_find_in_history, null)
+        val text: TextView = mView.findViewById(R.id.target_word)
+
+        val dialogClickListener =
+            DialogInterface.OnClickListener { dialog, which ->
+                when (which) {
+                    DialogInterface.BUTTON_POSITIVE -> {
+                        text?.text.let {
+                            model.findInHistory(it.toString())
+                        }
+                    }
+                    DialogInterface.BUTTON_NEGATIVE -> {
+                    }
+                }
+            }
+
+        val builder: AlertDialog.Builder = AlertDialog.Builder(context)
+        builder
+            .setTitle(getString(R.string.title_alert_find))
+            .setView(mView)
+            .setPositiveButton(getString(R.string.alert_positive_text), dialogClickListener)
+            .setNegativeButton(getString(R.string.alert_negative_text), dialogClickListener)
+            .show()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+        when (item.itemId) {
+            R.id.search -> {
+                search()
+                true
+            }
+            else -> false
+        }
 
     private fun hideKeyboardForTextView() {
         val view = requireActivity().currentFocus
@@ -161,41 +359,15 @@ class MainFragment : BaseFragment<AppState, MainInteractor>(), WordAdapter.Deleg
         }
     }
 
-    override fun onItemPicked(word: DictionaryEntry) {
-        Toast.makeText(
-            requireContext(),
-            word.translatesList.joinToString(separator = ",\n"),
-            Toast.LENGTH_LONG
-        )
-            .show()
+    override fun onItemPicked(word: WordTranslate) {
+        router.navigateTo(DetailScreen(word = word))
     }
 
-    override fun renderData(appState: AppState) {
-        when (appState) {
-            is AppState.Success -> {
-                if (appState.data == null || appState.data.dictionaryEntryList.isEmpty()) {
-                    showErrorScreen(getString(R.string.empty_server_response_on_success))
-                } else {
-                    showViewSuccess()
-                    wordAdapter.setData(ArrayList(appState.data.dictionaryEntryList))
-                }
-            }
-            is AppState.Loading -> {
-                showViewLoading()
-                with(binding) {
-                    if (appState.progress != null) {
-                        progressBarHorizontal.visibility = android.view.View.VISIBLE
-                        progressBarRound.visibility = android.view.View.GONE
-                        progressBarHorizontal.progress = appState.progress
-                    } else {
-                        progressBarHorizontal.visibility = android.view.View.GONE
-                        progressBarRound.visibility = android.view.View.VISIBLE
-                    }
-                }
-            }
-            is AppState.Error -> {
-                showErrorScreen(appState.error.message)
-            }
-        }
+    override fun onFavouritePicked(word: WordTranslate) {
+        model.saveToFavourite(word)
+    }
+
+    private fun showMessage(toast: () -> Unit) {
+        toast()
     }
 }
