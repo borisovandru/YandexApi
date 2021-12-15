@@ -16,7 +16,9 @@ class AppTranslator : Application() {
                     Di.interactorModule(),
                     Di.networkModule(),
                     Di.repositoryModule(),
-                    Di.yandexApiModule()
+                    Di.yandexApiModule(),
+                    Di.navigationModule(),
+                    Di.storageModule()
                 )
             )
         }

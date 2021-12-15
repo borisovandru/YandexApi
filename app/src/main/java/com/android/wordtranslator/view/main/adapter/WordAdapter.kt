@@ -7,21 +7,31 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android.wordtranslator.R
 import com.android.wordtranslator.domain.model.DictionaryEntry
+import com.android.wordtranslator.domain.storage.entity.WordTranslate
 
 class WordAdapter(
     private val delegate: Delegate?
 ) : RecyclerView.Adapter<WordViewHolder>() {
+
     interface Delegate {
         /**
          * Событие наступает при выборе
          * строки перевода.
          * @param word Слово
          */
-        fun onItemPicked(word: DictionaryEntry)
+        fun onItemPicked(word: WordTranslate)
+
+        /**
+         * Событие наступает при клике
+         * по сердечку для добавления в избранное.
+         * @param word Слово
+         */
+        fun onFavouritePicked(word: WordTranslate)
     }
 
-    private val data = ArrayList<DictionaryEntry>()
-    fun setData(newList: ArrayList<DictionaryEntry>) {
+    private val data = ArrayList<WordTranslate>()
+
+    fun setData(newList: ArrayList<WordTranslate>) {
         val result = DiffUtil.calculateDiff(DiffUtilCallback(this.data, newList))
         result.dispatchUpdatesTo(this)
         this.data.clear()
@@ -36,7 +46,7 @@ class WordAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
         return WordViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.recycler_view_item, parent, false) as View
+                .inflate(R.layout.main_item, parent, false) as View
         )
     }
 
@@ -49,13 +59,17 @@ class WordAdapter(
     }
 
     inner class DiffUtilCallback(
-        private var oldItems: ArrayList<DictionaryEntry>,
-        private var newItems: ArrayList<DictionaryEntry>
+        private var oldItems: ArrayList<WordTranslate>,
+        private var newItems: ArrayList<WordTranslate>
     ) : DiffUtil.Callback() {
+
         override fun getOldListSize(): Int = oldItems.size
+
         override fun getNewListSize(): Int = newItems.size
+
         override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
-            oldItems[oldItemPosition].partOfSpeech == newItems[newItemPosition].partOfSpeech
+            oldItems[oldItemPosition].word == newItems[newItemPosition].word &&
+                    oldItems[oldItemPosition].partOfSpeech == newItems[newItemPosition].partOfSpeech
 
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
             oldItems[oldItemPosition] == newItems[newItemPosition]
