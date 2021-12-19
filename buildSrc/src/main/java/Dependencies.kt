@@ -4,24 +4,33 @@ object Config {
     const val APPLICATION_ID = "com.android.wordtranslator"
     const val COMPILE_SDK = 31
     const val BUILD_TOOLS = "30.0.2"
-    const val MIN_SDK_VERSION = 26
+    const val MIN_SDK_VERSION = 21
     const val TARGET_SDK = 31
     const val VERSION_CODE = 1
     const val VERSION_NAME = " Full version"
-    const val JVM_TARGET = "1.8"
+    const val JVM_TARGET = "11"
     val java_version = JavaVersion.VERSION_1_8
 }
 
+object Modules {
+    const val MODULE_MODEL = ":model"
+    const val MODULE_DOMAIN = ":domain"
+    const val MODULE_UTILS = ":utils"
+
+    const val SCREEN_DETAIL = ":screendetail"
+    const val SCREEN_HISTORY = ":screenhistory"
+    const val SCREEN_FAVOURITE = ":screenfavourite"
+}
+
 object LibVersion {
-    const val KOTLIN_VERSION = "1.6.10"
     const val KOTLIN_STDLIB_VERSION = "kotlin-stdlib-jdk8:1.6.10"
+    const val GRADLE_PLUGIN_VERSION = "kotlin-gradle-plugin:1.6.10"
     const val GRADLE_VERSION = "7.0.2"
     const val CORE_KTX_VERSION = "1.6.0"
     const val APPCOMPAT_VERSION = "1.3.1"
     const val ANDROID_MATERIAL_VERSION = "1.4.0"
     const val CONSTRAINT_LAYOUT_VERSION = "2.1.1"
     const val LIFECYCLE_VERSION = "2.3.1"
-    const val LEGACY_VERSION = "1.0.0"
 
     // ViewBindingPropertyDelegate
     const val VIEW_BINDING_DELEGATE_VERSION = "1.5.0-beta01"
@@ -59,7 +68,8 @@ object LibVersion {
 }
 
 object ViewBindingDelegate {
-    const val DELEGATE = "com.github.kirich1409:viewbindingpropertydelegate:${LibVersion.VIEW_BINDING_DELEGATE_VERSION}"
+    const val DELEGATE =
+        "com.github.kirich1409:viewbindingpropertydelegate:${LibVersion.VIEW_BINDING_DELEGATE_VERSION}"
 }
 
 object RxJava {
@@ -70,10 +80,14 @@ object RxJava {
 
 object Retrofit2 {
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${LibVersion.RETROFIT2_VERSION}"
-    const val CONVERTER_JSON = "com.squareup.retrofit2:converter-gson:${LibVersion.RETROFIT2_VERSION}"
-    const val LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:${LibVersion.OKHTTP3_LOGGING_VERSION}"
-    const val RXJAVA2_ADAPTER =  "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${LibVersion.RXJAVA2_ADAPTER_VERSION}"
-    const val COROUTINES_ADAPTER = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${LibVersion.COROUTINES_ADAPTER}"
+    const val CONVERTER_JSON =
+        "com.squareup.retrofit2:converter-gson:${LibVersion.RETROFIT2_VERSION}"
+    const val LOGGING_INTERCEPTOR =
+        "com.squareup.okhttp3:logging-interceptor:${LibVersion.OKHTTP3_LOGGING_VERSION}"
+    const val RXJAVA2_ADAPTER =
+        "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${LibVersion.RXJAVA2_ADAPTER_VERSION}"
+    const val COROUTINES_ADAPTER =
+        "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${LibVersion.COROUTINES_ADAPTER}"
 }
 
 object Koin {
@@ -86,8 +100,10 @@ object Koin {
 
 object Design {
     const val APPCOMPAT = "androidx.appcompat:appcompat:${LibVersion.APPCOMPAT_VERSION}"
-    const val MATERIAL = "com.google.android.material:material:${LibVersion.ANDROID_MATERIAL_VERSION}"
-    const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${LibVersion.CONSTRAINT_LAYOUT_VERSION}"
+    const val MATERIAL =
+        "com.google.android.material:material:${LibVersion.ANDROID_MATERIAL_VERSION}"
+    const val CONSTRAINT_LAYOUT =
+        "androidx.constraintlayout:constraintlayout:${LibVersion.CONSTRAINT_LAYOUT_VERSION}"
 }
 
 object Kotlin {
@@ -96,13 +112,17 @@ object Kotlin {
 }
 
 object LifeCycle {
-    const val LIVEDATA_KTX ="androidx.lifecycle:lifecycle-livedata-ktx:${LibVersion.LIFECYCLE_VERSION}"
-    const val VIEW_MODEL_KTX = "androidx.lifecycle:lifecycle-viewmodel-ktx:${LibVersion.LIFECYCLE_VERSION}"
+    const val LIVEDATA_KTX =
+        "androidx.lifecycle:lifecycle-livedata-ktx:${LibVersion.LIFECYCLE_VERSION}"
+    const val VIEW_MODEL_KTX =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${LibVersion.LIFECYCLE_VERSION}"
 }
 
 object Coroutines {
-    const val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${LibVersion.COROUTINES_VERSION}"
-    const val ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${LibVersion.COROUTINES_VERSION}"
+    const val CORE =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${LibVersion.COROUTINES_VERSION}"
+    const val ANDROID =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${LibVersion.COROUTINES_VERSION}"
 }
 
 object Cicerone {
@@ -119,7 +139,8 @@ object Room {
 object Glide {
     const val COMPILER = "com.github.bumptech.glide:compiler:${LibVersion.GLIDE_VERSION}"
     const val GLIDE = "com.github.bumptech.glide:glide:${LibVersion.GLIDE_VERSION}"
-    const val GLIDE_OKHTTP3 = "com.github.bumptech.glide:okhttp3-integration:${LibVersion.GLIDE_VERSION}"
+    const val GLIDE_OKHTTP3 =
+        "com.github.bumptech.glide:okhttp3-integration:${LibVersion.GLIDE_VERSION}"
 }
 
 object Tests {

@@ -46,14 +46,20 @@ android {
     }
     buildTypes.forEach {
         val properties = Properties()
-        properties.load(FileInputStream(project.rootProject.file("apiconfig.properties")))
-        val appToken = properties.getProperty("token", "")
-        it.buildConfigField("String", "API_TOKEN", appToken)
+        properties.load(FileInputStream(file("apiconfig.properties")))
         val urlBase = properties.getProperty("base_url", "")
         it.buildConfigField("String", "BASE_URL", urlBase)
     }
 }
 dependencies {
+
+    implementation(project(Modules.MODULE_MODEL))
+    implementation(project(Modules.MODULE_DOMAIN))
+    implementation(project(Modules.MODULE_UTILS))
+    implementation(project(Modules.SCREEN_HISTORY))
+    implementation(project(Modules.SCREEN_FAVOURITE))
+    implementation(project(Modules.SCREEN_DETAIL))
+
     // Design
     implementation(Design.APPCOMPAT)
     implementation(Design.MATERIAL)
@@ -66,6 +72,7 @@ dependencies {
     // LifeCycle
     implementation(LifeCycle.LIVEDATA_KTX)
     implementation(LifeCycle.VIEW_MODEL_KTX)
+
     // ViewBindingPropertyDelegate
     implementation(ViewBindingDelegate.DELEGATE)
 

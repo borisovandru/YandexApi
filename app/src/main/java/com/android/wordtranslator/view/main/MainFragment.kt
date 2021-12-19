@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
@@ -19,14 +20,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.terrakok.cicerone.Router
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.android.domain.storage.entity.WordTranslate
+import com.android.model.AppState
+import com.android.model.DictionaryResult
+import com.android.screendetail.DetailScreen
 import com.android.wordtranslator.R
 import com.android.wordtranslator.databinding.FragmentMainBinding
-import com.android.wordtranslator.domain.model.AppState
-import com.android.wordtranslator.domain.model.DictionaryResult
-import com.android.wordtranslator.domain.storage.entity.WordTranslate
-import com.android.wordtranslator.utils.mapToListWordTranslate
-import com.android.wordtranslator.view.detail.DetailScreen
 import com.android.wordtranslator.view.main.adapter.WordAdapter
+import com.android.utils.mapToListWordTranslate
 
 class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
 
@@ -74,7 +75,7 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -107,7 +108,7 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
         with(binding) {
             searchEditText.addTextChangedListener(textWatcher)
             searchEditText.setOnEditorActionListener { view, actionId, event ->
-                if (actionId == android.view.inputmethod.EditorInfo.IME_ACTION_SEARCH) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     if (view.text.isNotEmpty()) {
                         if (isNetworkAvailable) {
                             model.getData(view.text.toString(), isNetworkAvailable)
@@ -164,22 +165,22 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
         model.getNetworkState()
         model.translateLiveData().observe(requireActivity(), Observer<AppState> {
             when (it) {
-                is AppState.Success -> {
+                is com.android.model.AppState.Success -> {
                     if (it.data == null || (it.data as DictionaryResult).dictionaryEntryList.isEmpty()) {
                         showErrorScreen(getString(R.string.empty_server_response_on_success))
                     } else {
                         showViewSuccess()
-                        wordAdapter.setData(ArrayList(mapToListWordTranslate(it.data)))
-                        model.saveToHistory(it.data)
+                        wordAdapter.setData(ArrayList(mapToListWordTranslate(it.data as DictionaryResult)))
+                        model.saveToHistory(it.data as DictionaryResult)
                     }
                 }
-                is AppState.Loading -> {
+                is com.android.model.AppState.Loading -> {
                     showViewLoading()
                     with(binding) {
                         if (it.progress != null) {
                             progressBarHorizontal.isVisible = true
                             progressBarRound.isVisible = false
-                            progressBarHorizontal.progress = it.progress
+                            progressBarHorizontal.progress = it.progress!!
                         } else {
                             progressBarHorizontal.isVisible = false
                             progressBarRound.isVisible = true
@@ -196,7 +197,7 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
         {
             when (it) {
                 is AppState.Success -> {
-                    if (it?.data != null) {
+                    if (it.data != null) {
                         router.navigateTo(
                             DetailScreen(word = (it.data as WordTranslate))
                         )
@@ -208,7 +209,7 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
                         if (it.progress != null) {
                             progressBarHorizontal.isVisible = true
                             progressBarRound.isVisible = false
-                            progressBarHorizontal.progress = it.progress
+                            progressBarHorizontal.progress = it.progress!!
                         } else {
                             progressBarHorizontal.isVisible = false
                             progressBarRound.isVisible = true
@@ -231,7 +232,7 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
         model.favouriteLiveData().observe(requireActivity(), Observer<AppState> {
             when (it) {
                 is AppState.Success -> {
-                    if ((it?.data as Long) > 0) {
+                    if ((it.data as Long) > 0) {
                         showViewSuccess()
                         showMessage {
                             Toast.makeText(
@@ -248,7 +249,7 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
                         if (it.progress != null) {
                             progressBarHorizontal.isVisible = true
                             progressBarRound.isVisible = false
-                            progressBarHorizontal.progress = it.progress
+                            progressBarHorizontal.progress = it.progress!!
                         } else {
                             progressBarHorizontal.isVisible = false
                             progressBarRound.isVisible = true
@@ -283,7 +284,7 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
             DialogInterface.OnClickListener { dialog, which ->
                 when (which) {
                     DialogInterface.BUTTON_POSITIVE -> {
-                        text?.text.let {
+                        text.text.let {
                             model.findInHistory(it.toString())
                         }
                     }

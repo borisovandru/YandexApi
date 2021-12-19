@@ -8,8 +8,8 @@ import com.github.terrakok.cicerone.androidx.AppNavigator
 import org.koin.android.ext.android.inject
 import com.android.wordtranslator.R
 import com.android.wordtranslator.databinding.ActivityMainBinding
-import com.android.wordtranslator.view.favourite.FavouriteScreen
-import com.android.wordtranslator.view.history.HistoryScreen
+import com.android.screenfavourite.FavouriteScreen
+import com.android.screenhistory.HistoryScreen
 import com.android.wordtranslator.view.main.MainScreen
 
 class MainActivity : AppCompatActivity() {

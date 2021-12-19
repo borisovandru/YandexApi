@@ -1,7 +1,7 @@
 package com.android.wordtranslator.view.main
 
-import com.android.wordtranslator.domain.storage.entity.WordFavourite
-import com.android.wordtranslator.domain.storage.entity.WordTranslate
+import com.android.domain.storage.entity.WordFavourite
+import com.android.domain.storage.entity.WordTranslate
 
 interface IMainInteractor<T> {
     suspend fun getData(word: String, fromRemoteSource: Boolean): T

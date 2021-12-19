@@ -1,13 +1,13 @@
 package com.android.wordtranslator.view.main
 
 import androidx.lifecycle.LiveData
-import com.android.wordtranslator.domain.model.AppState
-import com.android.wordtranslator.domain.model.DictionaryResult
-import com.android.wordtranslator.domain.storage.entity.WordTranslate
-import com.android.wordtranslator.utils.mapToListWordTranslate
-import com.android.wordtranslator.utils.mapTranslateToFavourite
-import com.android.wordtranslator.utils.network.NetworkState
-import com.android.wordtranslator.utils.network.NetworkStateObservable
+import com.android.model.AppState
+import com.android.model.DictionaryResult
+import com.android.domain.storage.entity.WordTranslate
+import com.android.utils.mapToListWordTranslate
+import com.android.utils.mapTranslateToFavourite
+import com.android.utils.network.NetworkState
+import com.android.utils.network.NetworkStateObservable
 import io.reactivex.rxkotlin.plusAssign
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -47,11 +47,7 @@ class MainViewModel(
         viewModelCoroutineScope.launch {
             val result = interactor.repositoryLocal.findInHistoryByWord(word)
 
-            if (result?.word != null) {
-                historyLiveData.postValue(AppState.Success(result))
-            } else {
-                historyLiveData.postValue(AppState.Error(Exception(EMPTY_RESULT_MESSAGE)))
-            }
+            historyLiveData.postValue(AppState.Success(result))
         }
     }
 

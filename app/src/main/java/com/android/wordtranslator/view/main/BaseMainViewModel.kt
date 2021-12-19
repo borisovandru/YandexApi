@@ -3,12 +3,12 @@ package com.android.wordtranslator.view.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.android.wordtranslator.domain.model.AppState
-import com.android.wordtranslator.domain.storage.entity.WordTranslate
+import com.android.model.AppState
+import com.android.domain.storage.entity.WordTranslate
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.coroutines.*
 
-abstract class BaseMainViewModel<T : AppState>(
+abstract class BaseMainViewModel<T : com.android.model.AppState>(
     protected val translateLiveData: MutableLiveData<T> = MutableLiveData(),
     protected val compositeDisposable: CompositeDisposable = CompositeDisposable(),
     protected val networkStateLiveData: MutableLiveData<Boolean> = MutableLiveData(),
