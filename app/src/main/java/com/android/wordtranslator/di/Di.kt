@@ -1,6 +1,8 @@
 package com.android.wordtranslator.di
 
 import androidx.room.Room
+import com.android.domain.api.YandexApi
+import com.android.domain.api.YandexApiInterceptor
 import com.android.wordtranslator.BuildConfig
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -14,21 +16,19 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import com.android.wordtranslator.domain.api.YandexApi
-import com.android.wordtranslator.domain.api.YandexApiInterceptor
-import com.android.wordtranslator.domain.model.DictionaryResult
-import com.android.wordtranslator.domain.repository.IRepository
-import com.android.wordtranslator.domain.repository.IRepositoryLocal
-import com.android.wordtranslator.domain.repository.RepositoryImpl
-import com.android.wordtranslator.domain.repository.RepositoryLocalImpl
-import com.android.wordtranslator.domain.repository.datasource.CacheDataSourceImpl
-import com.android.wordtranslator.domain.repository.datasource.NetworkDataSourceImpl
-import com.android.wordtranslator.domain.storage.WordStorage
-import com.android.wordtranslator.utils.network.NetworkStateObservable
-import com.android.wordtranslator.view.favourite.FavouriteInteractor
-import com.android.wordtranslator.view.favourite.FavouriteViewModel
-import com.android.wordtranslator.view.history.HistoryInteractor
-import com.android.wordtranslator.view.history.HistoryViewModel
+import com.android.model.DictionaryResult
+import com.android.domain.repository.IRepository
+import com.android.domain.repository.IRepositoryLocal
+import com.android.domain.repository.RepositoryImpl
+import com.android.domain.repository.RepositoryLocalImpl
+import com.android.domain.repository.datasource.CacheDataSourceImpl
+import com.android.domain.repository.datasource.NetworkDataSourceImpl
+import com.android.domain.storage.WordStorage
+import com.android.utils.network.NetworkStateObservable
+import com.android.screenfavourite.FavouriteInteractor
+import com.android.screenfavourite.FavouriteViewModel
+import com.android.screenhistory.HistoryInteractor
+import com.android.screenhistory.HistoryViewModel
 import com.android.wordtranslator.view.main.MainInteractor
 import com.android.wordtranslator.view.main.MainViewModel
 import com.github.terrakok.cicerone.Cicerone
@@ -87,7 +87,11 @@ object Di {
         }
         single<IRepositoryLocal> {
             RepositoryLocalImpl(
-                dataSource = CacheDataSourceImpl(get(named(PERSISTED)))
+                dataSource = CacheDataSourceImpl(
+                    get(
+                        named(PERSISTED)
+                    )
+                )
             )
         }
     }

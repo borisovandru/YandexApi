@@ -4,10 +4,8 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.android.wordtranslator.databinding.MainItemBinding
-import com.android.wordtranslator.databinding.RecyclerViewItemBinding
-import com.android.wordtranslator.domain.model.DictionaryEntry
-import com.android.wordtranslator.domain.storage.entity.WordTranslate
-import com.android.wordtranslator.extensions.click
+import com.android.domain.storage.entity.WordTranslate
+import com.android.utils.extensions.click
 
 class WordViewHolder(
     view: View

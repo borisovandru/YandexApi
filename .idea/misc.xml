@@ -29,6 +29,19 @@
         <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/menu/favourite_menu.xml" value="0.14722222222222223" />
         <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/menu/history_menu.xml" value="0.14722222222222223" />
         <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/menu/main_menu.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/app/src/main/res/layout/main_item.xml" value="0.1" />
+        <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/screendetail/src/main/res/drawable/ic_no_image.xml" value="0.16944444444444445" />
+        <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/screendetail/src/main/res/drawable/ic_place_holder_image.xml" value="0.16944444444444445" />
+        <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/screendetail/src/main/res/layout/fragment_detail.xml" value="0.1" />
+        <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/screenfavourite/src/main/res/drawable/ic_delete.xml" value="0.16944444444444445" />
+        <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/screenfavourite/src/main/res/layout/favourite_item.xml" value="0.1" />
+        <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/screenfavourite/src/main/res/layout/fragment_favourite.xml" value="0.1" />
+        <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/screenfavourite/src/main/res/menu/favourite_menu.xml" value="0.1" />
+        <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/screenhistory/src/main/res/drawable/ic_delete.xml" value="0.20185185185185187" />
+        <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/screenhistory/src/main/res/layout/fragment_history.xml" value="0.1" />
+        <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/screenhistory/src/main/res/layout/history_item.xml" value="0.1" />
+        <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/screenhistory/src/main/res/menu/history_menu.xml" value="0.1" />
         <entry key="..\:/Users/boris/GeekBrains/WordTranslator/app/src/main/res/drawable/ic_clear.xml" value="0.22" />
         <entry key="..\:/Users/boris/GeekBrains/WordTranslator/app/src/main/res/drawable/ic_find.xml" value="0.22" />
         <entry key="..\:/Users/boris/GeekBrains/WordTranslator/app/src/main/res/drawable/ic_launcher_background.xml" value="0.16574074074074074" />

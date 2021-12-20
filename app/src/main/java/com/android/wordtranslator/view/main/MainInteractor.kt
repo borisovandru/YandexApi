@@ -1,10 +1,10 @@
 package com.android.wordtranslator.view.main
 
-import com.android.wordtranslator.domain.model.DictionaryResult
-import com.android.wordtranslator.domain.repository.IRepository
-import com.android.wordtranslator.domain.repository.IRepositoryLocal
-import com.android.wordtranslator.domain.storage.entity.WordFavourite
-import com.android.wordtranslator.domain.storage.entity.WordTranslate
+import com.android.model.DictionaryResult
+import com.android.domain.repository.IRepository
+import com.android.domain.repository.IRepositoryLocal
+import com.android.domain.storage.entity.WordFavourite
+import com.android.domain.storage.entity.WordTranslate
 
 class MainInteractor(
     val repositoryRemote: IRepository<DictionaryResult>,
