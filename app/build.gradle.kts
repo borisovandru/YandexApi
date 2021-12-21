@@ -3,9 +3,9 @@ import java.util.*
 
 plugins {
     id("com.android.application")
-    id("kotlin-android")
     id("kotlin-parcelize")
-    id("kotlin-kapt")
+    kotlin("android")
+    kotlin("kapt")
 }
 android {
     compileSdk = Config.COMPILE_SDK
@@ -46,7 +46,7 @@ android {
     }
     buildTypes.forEach {
         val properties = Properties()
-        properties.load(FileInputStream(file("apiconfig.properties")))
+        properties.load(FileInputStream(file("./../apiconfig.properties")))
         val urlBase = properties.getProperty("base_url", "")
         it.buildConfigField("String", "BASE_URL", urlBase)
     }

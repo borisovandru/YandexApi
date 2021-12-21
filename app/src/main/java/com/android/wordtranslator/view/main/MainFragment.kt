@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
-import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
@@ -17,9 +16,11 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.github.terrakok.cicerone.Router
+import org.koin.android.ext.android.getKoin
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.qualifier.named
 import com.android.domain.storage.entity.WordTranslate
 import com.android.model.AppState
 import com.android.model.DictionaryResult
@@ -27,21 +28,22 @@ import com.android.screendetail.DetailScreen
 import com.android.wordtranslator.R
 import com.android.wordtranslator.databinding.FragmentMainBinding
 import com.android.wordtranslator.view.main.adapter.WordAdapter
+import com.android.utils.Di.DiConst
+import com.android.utils.extensions.showSnakeBar
 import com.android.utils.mapToListWordTranslate
+import com.android.utils.viewById
 
 class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
 
-    companion object {
-        private const val INPUT_METHOD_MANAGER_FLAGS = 0
-
-        fun newInstance(): Fragment = MainFragment()
-    }
+    private val scope = getKoin().createScope<MainFragment>()
 
     private var isNetworkAvailable: Boolean = false
     private lateinit var binding: FragmentMainBinding
-    private val model: MainViewModel by viewModel()
+    private val model: MainViewModel = scope.get(qualifier = named(name = DiConst.MAIN_VIEW_MODEL))
     private val router: Router by inject()
     private val wordAdapter by lazy { WordAdapter(this) }
+
+    private val mainRV by viewById<RecyclerView>(R.id.main_rv)
 
     private val textWatcher = object : TextWatcher {
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -96,6 +98,7 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
         model.translateLiveData().removeObservers(requireActivity())
         model.findHistoryLiveData().removeObservers(requireActivity())
         model.getNetworkState().removeObservers(requireActivity())
+
         init()
     }
 
@@ -107,8 +110,8 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
     private fun init() {
         with(binding) {
             searchEditText.addTextChangedListener(textWatcher)
-            searchEditText.setOnEditorActionListener { view, actionId, event ->
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+            searchEditText.setOnEditorActionListener { view, actionId, _ ->
+                if (actionId == android.view.inputmethod.EditorInfo.IME_ACTION_SEARCH) {
                     if (view.text.isNotEmpty()) {
                         if (isNetworkAvailable) {
                             model.getData(view.text.toString(), isNetworkAvailable)
@@ -145,27 +148,30 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
                 }
             }
 
-            with(mainRv) {
-                layoutManager =
-                    LinearLayoutManager(requireContext())
-                adapter = wordAdapter
-                itemAnimator = DefaultItemAnimator()
-                addItemDecoration(
-                    DividerItemDecoration(
-                        requireContext(),
-                        LinearLayoutManager.VERTICAL
-                    )
-                )
-            }
+
         }
 
-        model.networkStateLiveData().observe(requireActivity(), Observer<Boolean> {
+        with(mainRV) {
+            layoutManager =
+                LinearLayoutManager(requireContext())
+            adapter = wordAdapter
+            itemAnimator = DefaultItemAnimator()
+            addItemDecoration(
+                DividerItemDecoration(
+                    requireContext(),
+                    LinearLayoutManager.VERTICAL
+                )
+            )
+        }
+
+        model.networkStateLiveData().observe(viewLifecycleOwner, Observer<Boolean> {
             isNetworkAvailable = it
+            binding.root.showSnakeBar(String.format(getString(R.string.internet_active), it))
         })
         model.getNetworkState()
-        model.translateLiveData().observe(requireActivity(), Observer<AppState> {
+        model.translateLiveData().observe(viewLifecycleOwner, Observer<AppState> {
             when (it) {
-                is com.android.model.AppState.Success -> {
+                is AppState.Success -> {
                     if (it.data == null || (it.data as DictionaryResult).dictionaryEntryList.isEmpty()) {
                         showErrorScreen(getString(R.string.empty_server_response_on_success))
                     } else {
@@ -174,13 +180,15 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
                         model.saveToHistory(it.data as DictionaryResult)
                     }
                 }
-                is com.android.model.AppState.Loading -> {
+                is AppState.Loading -> {
                     showViewLoading()
                     with(binding) {
                         if (it.progress != null) {
                             progressBarHorizontal.isVisible = true
                             progressBarRound.isVisible = false
-                            progressBarHorizontal.progress = it.progress!!
+                            it.progress?.let { progress ->
+                                progressBarHorizontal.progress = progress
+                            }
                         } else {
                             progressBarHorizontal.isVisible = false
                             progressBarRound.isVisible = true
@@ -193,7 +201,7 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
             }
         })
 
-        model.findHistoryLiveData().observe(requireActivity(), Observer<AppState>
+        model.findHistoryLiveData().observe(viewLifecycleOwner, Observer<AppState>
         {
             when (it) {
                 is AppState.Success -> {
@@ -209,7 +217,9 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
                         if (it.progress != null) {
                             progressBarHorizontal.isVisible = true
                             progressBarRound.isVisible = false
-                            progressBarHorizontal.progress = it.progress!!
+                            it.progress?.let { progress ->
+                                progressBarHorizontal.progress = progress
+                            }
                         } else {
                             progressBarHorizontal.isVisible = false
                             progressBarRound.isVisible = true
@@ -229,7 +239,7 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
             }
         })
 
-        model.favouriteLiveData().observe(requireActivity(), Observer<AppState> {
+        model.favouriteLiveData().observe(viewLifecycleOwner, Observer<AppState> {
             when (it) {
                 is AppState.Success -> {
                     if ((it.data as Long) > 0) {
@@ -249,7 +259,9 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
                         if (it.progress != null) {
                             progressBarHorizontal.isVisible = true
                             progressBarRound.isVisible = false
-                            progressBarHorizontal.progress = it.progress!!
+                            it.progress?.let { progress ->
+                                progressBarHorizontal.progress = progress
+                            }
                         } else {
                             progressBarHorizontal.isVisible = false
                             progressBarRound.isVisible = true
@@ -276,7 +288,7 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
     }
 
     private fun search() {
-        val inflater: LayoutInflater = requireActivity().getLayoutInflater()
+        val inflater: LayoutInflater = requireActivity().layoutInflater
         val mView: View = inflater.inflate(R.layout.dialog_find_in_history, null)
         val text: TextView = mView.findViewById(R.id.target_word)
 
@@ -370,5 +382,11 @@ class MainFragment : Fragment(R.layout.fragment_main), WordAdapter.Delegate {
 
     private fun showMessage(toast: () -> Unit) {
         toast()
+    }
+
+    companion object {
+        private const val INPUT_METHOD_MANAGER_FLAGS = 0
+
+        fun newInstance(): Fragment = MainFragment()
     }
 }

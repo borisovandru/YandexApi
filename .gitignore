@@ -1,10 +1,10 @@
 # Project exclude paths
-/.gradle/
-/apiconfig.properties
+.gradle
 .idea
-.gitignore
+apiconfig.properties
 local.properties
-/objects/pack
-/refs/heads
-HEAD
-config
+.gitignore
+/shelf
+gradle.properties
+gradlew.bat
+build

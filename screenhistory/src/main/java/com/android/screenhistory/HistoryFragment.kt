@@ -17,19 +17,24 @@ import com.android.domain.storage.entity.WordTranslate
 import com.android.screendetail.DetailScreen
 import com.android.screenhistory.adapter.HistoryWordAdapter
 import com.android.screenhistory.databinding.FragmentHistoryBinding
+import com.android.utils.Di.DiConst
+import org.koin.android.ext.android.getKoin
+import org.koin.core.qualifier.named
 
 class HistoryFragment : Fragment(R.layout.fragment_history), HistoryWordAdapter.Delegate {
-    companion object {
-        fun newInstance() = HistoryFragment()
-    }
+
+    private val scope = getKoin().createScope<HistoryFragment>()
 
     private lateinit var binding: FragmentHistoryBinding
-    private val model: HistoryViewModel by viewModel()
+    private val model: HistoryViewModel =
+        scope.get(qualifier = named(name = DiConst.HISTORY_VIEW_MODEL))
     private val historyWordAdapter by lazy { HistoryWordAdapter(this) }
     private val router: Router by inject()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
+
         init()
     }
 
@@ -37,7 +42,7 @@ class HistoryFragment : Fragment(R.layout.fragment_history), HistoryWordAdapter.
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         binding = FragmentHistoryBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -63,15 +68,15 @@ class HistoryFragment : Fragment(R.layout.fragment_history), HistoryWordAdapter.
     private fun init() {
         model.translateLiveData().observe(viewLifecycleOwner, Observer<AppState> {
             when (it) {
-                is com.android.model.AppState.Success -> {
-                    if (it.data == null || (it.data as List<*>).isEmpty()) {
+                is AppState.Success -> {
+                    if (it.data == null || (it.data as List<WordTranslate>).isEmpty()) {
                         showErrorScreen(getString(R.string.empty_server_response_on_success))
                     } else {
                         showViewSuccess()
                         historyWordAdapter.setData(ArrayList(it.data as List<WordTranslate>))
                     }
                 }
-                is com.android.model.AppState.Loading -> {
+                is AppState.Loading -> {
                     showViewLoading()
                     with(binding) {
                         if (it.progress != null) {
@@ -84,15 +89,15 @@ class HistoryFragment : Fragment(R.layout.fragment_history), HistoryWordAdapter.
                         }
                     }
                 }
-                is com.android.model.AppState.Error -> {
+                is AppState.Error -> {
                     showErrorScreen(it.error.message)
                 }
             }
         })
         model.clearLiveData().observe(viewLifecycleOwner, Observer<AppState> {
             when (it) {
-                is com.android.model.AppState.Success -> {
-                    if ((it.data as Int) > 0) {
+                is AppState.Success -> {
+                    if ((it?.data as Int) > 0) {
                         Toast.makeText(
                             requireContext(),
                             getString(R.string.success_clear),
@@ -101,7 +106,7 @@ class HistoryFragment : Fragment(R.layout.fragment_history), HistoryWordAdapter.
                         model.getData()
                     }
                 }
-                is com.android.model.AppState.Loading -> {
+                is AppState.Loading -> {
                     showViewLoading()
                     with(binding) {
                         if (it.progress != null) {
@@ -114,7 +119,7 @@ class HistoryFragment : Fragment(R.layout.fragment_history), HistoryWordAdapter.
                         }
                     }
                 }
-                is com.android.model.AppState.Error -> {
+                is AppState.Error -> {
                     binding.loadingFrame.isVisible = false
                     Toast.makeText(requireContext(), it.error.message.toString(), Toast.LENGTH_LONG)
                         .show()
@@ -122,6 +127,7 @@ class HistoryFragment : Fragment(R.layout.fragment_history), HistoryWordAdapter.
             }
         })
         model.getData()
+
         with(binding) {
             with(historyRv) {
                 layoutManager = LinearLayoutManager(requireContext())
@@ -171,5 +177,9 @@ class HistoryFragment : Fragment(R.layout.fragment_history), HistoryWordAdapter.
 
     override fun onItemPicked(word: WordTranslate) {
         router.navigateTo(DetailScreen(word = word))
+    }
+
+    companion object {
+        fun newInstance() = HistoryFragment()
     }
 }

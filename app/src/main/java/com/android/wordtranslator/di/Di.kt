@@ -1,9 +1,9 @@
 package com.android.wordtranslator.di
 
 import androidx.room.Room
-import com.android.domain.api.YandexApi
-import com.android.domain.api.YandexApiInterceptor
-import com.android.wordtranslator.BuildConfig
+import com.github.terrakok.cicerone.Cicerone
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -16,7 +16,8 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import com.android.model.DictionaryResult
+import com.android.domain.api.YandexApi
+import com.android.domain.api.YandexApiInterceptor
 import com.android.domain.repository.IRepository
 import com.android.domain.repository.IRepositoryLocal
 import com.android.domain.repository.RepositoryImpl
@@ -24,33 +25,47 @@ import com.android.domain.repository.RepositoryLocalImpl
 import com.android.domain.repository.datasource.CacheDataSourceImpl
 import com.android.domain.repository.datasource.NetworkDataSourceImpl
 import com.android.domain.storage.WordStorage
-import com.android.utils.network.NetworkStateObservable
+import com.android.model.DictionaryResult
+import com.android.screenfavourite.FavouriteFragment
 import com.android.screenfavourite.FavouriteInteractor
 import com.android.screenfavourite.FavouriteViewModel
+import com.android.screenhistory.HistoryFragment
 import com.android.screenhistory.HistoryInteractor
 import com.android.screenhistory.HistoryViewModel
+import com.android.wordtranslator.BuildConfig
+import com.android.wordtranslator.view.main.MainFragment
 import com.android.wordtranslator.view.main.MainInteractor
 import com.android.wordtranslator.view.main.MainViewModel
-import com.github.terrakok.cicerone.Cicerone
-import com.github.terrakok.cicerone.NavigatorHolder
-import com.github.terrakok.cicerone.Router
+import com.android.utils.Di.DiConst
+import com.android.utils.network.NetworkStateObservable
 
 object Di {
+
     private const val PERSISTED = "Persisted"
     private const val IN_MEMORY = "InMemory"
+
     private const val DATABASE_NAME = "translator_database"
+
     fun viewModelModule() = module {
-        viewModel {
-            MainViewModel(
-                interactor = get(),
-                networkState = get(),
-            )
+        scope<MainFragment> {
+            viewModel(qualifier = named(DiConst.MAIN_VIEW_MODEL)) {
+                MainViewModel(
+                    interactor = get(),
+                    networkState = get(),
+                )
+            }
         }
-        viewModel {
-            HistoryViewModel(interactor = get())
+
+        scope<HistoryFragment> {
+            viewModel(qualifier = named(DiConst.HISTORY_VIEW_MODEL)) {
+                HistoryViewModel(interactor = get())
+            }
         }
-        viewModel {
-            FavouriteViewModel(interactor = get())
+
+        scope<FavouriteFragment> {
+            viewModel(qualifier = named(DiConst.FAVOURITE_VIEW_MODEL)) {
+                FavouriteViewModel(interactor = get())
+            }
         }
     }
 
@@ -61,11 +76,13 @@ object Di {
                 repositoryRemote = get()
             )
         }
+
         factory {
             HistoryInteractor(
                 repositoryLocal = get(),
             )
         }
+
         factory {
             FavouriteInteractor(
                 repositoryLocal = get(),
@@ -85,6 +102,7 @@ object Di {
                 )
             )
         }
+
         single<IRepositoryLocal> {
             RepositoryLocalImpl(
                 dataSource = CacheDataSourceImpl(
@@ -100,10 +118,12 @@ object Di {
         single<Interceptor> {
             YandexApiInterceptor()
         }
+
         single<Gson> {
             GsonBuilder()
                 .create()
         }
+
         single<YandexApi> {
             Retrofit.Builder()
                 .baseUrl(BuildConfig.BASE_URL)
@@ -130,9 +150,11 @@ object Di {
         single<Cicerone<Router>> {
             Cicerone.create()
         }
+
         single<NavigatorHolder> {
             get<Cicerone<Router>>().getNavigatorHolder()
         }
+
         single<Router> {
             get<Cicerone<Router>>().router
         }
@@ -144,6 +166,7 @@ object Di {
                 .fallbackToDestructiveMigration()
                 .build()
         }
+
         single<WordStorage>(qualifier = named(IN_MEMORY)) {
             Room.inMemoryDatabaseBuilder(androidContext(), WordStorage::class.java)
                 .fallbackToDestructiveMigration()

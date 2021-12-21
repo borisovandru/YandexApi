@@ -4,7 +4,7 @@ import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Query
 import com.android.model.DictionaryResult
-import com.android.wordtranslator.BuildConfig
+import com.android.domain.BuildConfig
 
 interface YandexApi {
     /**

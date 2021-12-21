@@ -1,6 +1,6 @@
 package com.android.domain.api
 
-import com.android.wordtranslator.BuildConfig
+import com.android.domain.BuildConfig
 import okhttp3.Credentials
 import okhttp3.Interceptor
 import okhttp3.Response

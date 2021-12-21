@@ -31,6 +31,8 @@
         <entry key="..\:/Users/boris/AndroidStudioProjects/Kotlin/YandexApi/app/src/main/res/menu/main_menu.xml" value="0.14722222222222223" />
         <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/app/src/main/res/layout/main_item.xml" value="0.1" />
         <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/app/src/main/res/menu/favourite_menu.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/app/src/main/res/menu/main_menu.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/screendetail/src/main/res/drawable/ic_no_image.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/screendetail/src/main/res/drawable/ic_place_holder_image.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/boris/GeekBrains/KOTLIN/YandexApi/screendetail/src/main/res/layout/fragment_detail.xml" value="0.1" />
@@ -56,5 +58,13 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="SuppressABINotification">
+    <option name="modulesWithSuppressedNotConfigured">
+      <set>
+        <option value="YandexApi.app" />
+        <option value="YandexApi.screenhistory" />
+      </set>
+    </option>
   </component>
 </project>

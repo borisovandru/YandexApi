@@ -3,9 +3,9 @@ import java.util.*
 
 plugins {
     id("com.android.library")
-    id("kotlin-android")
     id("kotlin-parcelize")
-    id("kotlin-kapt")
+    kotlin("android")
+    kotlin("kapt")
 }
 android {
     compileSdk = Config.COMPILE_SDK
@@ -23,7 +23,7 @@ android {
 
     buildTypes.forEach {
         val properties = Properties()
-        properties.load(FileInputStream(file("apiconfig.properties")))
+        properties.load(FileInputStream(file("./../apiconfig.properties")))
         val appToken = properties.getProperty("token", "")
         it.buildConfigField("String", "API_TOKEN", appToken)
         val urlBase = properties.getProperty("base_url", "")
@@ -45,8 +45,6 @@ dependencies {
 
     // Room
     implementation(Room.KTX)
-    implementation(project(mapOf("path" to ":app")))
-    implementation(project(mapOf("path" to ":app")))
     kapt(Room.COMPILER)
 
     // Tests

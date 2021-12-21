@@ -17,15 +17,17 @@ import com.android.model.AppState
 import com.android.screendetail.DetailScreen
 import com.android.screenfavourite.adapter.FavouriteWordAdapter
 import com.android.screenfavourite.databinding.FragmentFavouriteBinding
+import com.android.utils.Di.DiConst
 import com.android.utils.mapFavouriteToTranslate
+import org.koin.android.ext.android.getKoin
+import org.koin.core.qualifier.named
 
 class FavouriteFragment : Fragment(R.layout.fragment_favourite), FavouriteWordAdapter.Delegate {
 
-    companion object {
-        fun newInstance() = FavouriteFragment()
-    }
+    private val scope = getKoin().createScope<FavouriteFragment>()
 
-    private val model: FavouriteViewModel by viewModel()
+    private val model: FavouriteViewModel =
+        scope.get(qualifier = named(name = DiConst.FAVOURITE_VIEW_MODEL))
     private lateinit var binding: FragmentFavouriteBinding
     private val favouriteWordAdapter by lazy { FavouriteWordAdapter(this) }
     private val router: Router by inject()
@@ -84,7 +86,7 @@ class FavouriteFragment : Fragment(R.layout.fragment_favourite), FavouriteWordAd
 
         model.translateLiveData().observe(viewLifecycleOwner, Observer<AppState> {
             when (it) {
-                is com.android.model.AppState.Success -> {
+                is AppState.Success -> {
                     if (it.data == null || (it.data as List<WordFavourite>).isEmpty()) {
                         showErrorScreen(getString(R.string.empty_server_response_on_success))
                     } else {
@@ -92,27 +94,29 @@ class FavouriteFragment : Fragment(R.layout.fragment_favourite), FavouriteWordAd
                         favouriteWordAdapter.setData(ArrayList(it.data as List<WordFavourite>))
                     }
                 }
-                is com.android.model.AppState.Loading -> {
+                is AppState.Loading -> {
                     showViewLoading()
                     with(binding) {
                         if (it.progress != null) {
                             progressBarHorizontal.isVisible = true
                             progressBarRound.isVisible = false
-                            progressBarHorizontal.progress = it.progress!!
+                            it.progress?.let { progress ->
+                                progressBarHorizontal.progress = progress
+                            }
                         } else {
                             progressBarHorizontal.isVisible = false
                             progressBarRound.isVisible = true
                         }
                     }
                 }
-                is com.android.model.AppState.Error -> {
+                is AppState.Error -> {
                     showErrorScreen(it.error.message)
                 }
             }
         })
         model.clearLiveData().observe(viewLifecycleOwner, Observer<AppState> {
             when (it) {
-                is com.android.model.AppState.Success -> {
+                is AppState.Success -> {
                     if ((it?.data as Int) > 0) {
                         Toast.makeText(
                             requireContext(),
@@ -128,14 +132,16 @@ class FavouriteFragment : Fragment(R.layout.fragment_favourite), FavouriteWordAd
                         if (it.progress != null) {
                             progressBarHorizontal.isVisible = true
                             progressBarRound.isVisible = false
-                            progressBarHorizontal.progress = it.progress!!
+                            it.progress?.let { progress ->
+                                progressBarHorizontal.progress = progress
+                            }
                         } else {
                             progressBarHorizontal.isVisible = false
                             progressBarRound.isVisible = true
                         }
                     }
                 }
-                is com.android.model.AppState.Error -> {
+                is AppState.Error -> {
                     binding.loadingFrame.isVisible = false
                     Toast.makeText(requireContext(), it.error.message.toString(), Toast.LENGTH_LONG)
                         .show()
@@ -176,7 +182,17 @@ class FavouriteFragment : Fragment(R.layout.fragment_favourite), FavouriteWordAd
         }
     }
 
-    override fun onItemPicked(word:WordFavourite) {
-        router.navigateTo(DetailScreen(word = mapFavouriteToTranslate(word)))
+    override fun onItemPicked(word: WordFavourite) {
+        router.navigateTo(
+            DetailScreen(
+                word = mapFavouriteToTranslate(
+                    word
+                )
+            )
+        )
+    }
+
+    companion object {
+        fun newInstance() = FavouriteFragment()
     }
 }
