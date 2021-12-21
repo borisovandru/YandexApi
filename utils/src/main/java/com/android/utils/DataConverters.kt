@@ -16,8 +16,8 @@ fun mapToListWordTranslate(dictionaryResult: DictionaryResult): ArrayList<WordTr
     var example: String = ""
 
     dictionaryResult.dictionaryEntryList.forEach { dictionaryEntry ->
-        dictionaryEntry.translatesList.forEach { translation ->
-            translation.meanList.forEach { meanItem ->
+        dictionaryEntry.translatesList?.forEach { translation ->
+            translation.meanList?.forEach { meanItem ->
                 mean += if (mean.isEmpty()) {
                     ""
                 } else {
@@ -31,7 +31,7 @@ fun mapToListWordTranslate(dictionaryResult: DictionaryResult): ArrayList<WordTr
                     ", "
                 } + translation.text
 
-            translation.synonymList.forEach { synonymItem ->
+            translation.synonymList?.forEach { synonymItem ->
                 synonym += if (synonym.isEmpty()) {
                     ""
                 } else {
@@ -49,12 +49,12 @@ fun mapToListWordTranslate(dictionaryResult: DictionaryResult): ArrayList<WordTr
         }
 
         listTranslates.add(
-            com.android.domain.storage.entity.WordTranslate(
+            WordTranslate(
                 word = dictionaryEntry.text,
                 translate = translate,
                 mean = mean,
-                transcription = dictionaryEntry.transcription,
-                partOfSpeech = dictionaryEntry.partOfSpeech,
+                transcription = dictionaryEntry.transcription ?: "",
+                partOfSpeech = dictionaryEntry.partOfSpeech ?: "",
                 example = example,
                 synonym = synonym,
                 imageURL = DEFAULT_IMAGE_URL

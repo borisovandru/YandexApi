@@ -2,14 +2,14 @@ import org.gradle.api.JavaVersion
 
 object Config {
     const val APPLICATION_ID = "com.android.wordtranslator"
-    const val COMPILE_SDK = 31
+    const val COMPILE_SDK = 30
     const val BUILD_TOOLS = "30.0.2"
-    const val MIN_SDK_VERSION = 21
-    const val TARGET_SDK = 31
+    const val MIN_SDK_VERSION = 26
+    const val TARGET_SDK = 30
     const val VERSION_CODE = 1
     const val VERSION_NAME = " Full version"
-    const val JVM_TARGET = "11"
-    val java_version = JavaVersion.VERSION_1_8
+    const val JVM_TARGET = "1.8"
+    val java_version = JavaVersion.VERSION_11
 }
 
 object Modules {
@@ -23,9 +23,9 @@ object Modules {
 }
 
 object LibVersion {
-    const val KOTLIN_STDLIB_VERSION = "kotlin-stdlib-jdk8:1.6.10"
-    const val GRADLE_PLUGIN_VERSION = "kotlin-gradle-plugin:1.6.10"
+    const val KOTLIN_STDLIB_VERSION = "kotlin-stdlib-jdk8:1.5.31"
     const val GRADLE_VERSION = "7.0.2"
+    const val GRADLE_PLUGIN_VERSION = "kotlin-gradle-plugin:1.5.31"
     const val CORE_KTX_VERSION = "1.6.0"
     const val APPCOMPAT_VERSION = "1.3.1"
     const val ANDROID_MATERIAL_VERSION = "1.4.0"

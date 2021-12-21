@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.android.wordtranslator.R
+import com.android.screenhistory.R
 import com.android.domain.storage.entity.WordTranslate
 
 class HistoryWordAdapter(private val delegate: Delegate?) :
