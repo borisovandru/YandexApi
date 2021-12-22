@@ -14,38 +14,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06550c20-4218-4b86-aa18-ceb68abc40b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/domain/schemas/com.android.domain.storage.WordStorage/13.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/android/utils/Di/DiConst.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/src/main/java/com/android/utils/ViewByIdDelegate.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/ic_logo-playstore.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/widget/AppWidget.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v21/animation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/animation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_brand.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_logo_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/widget.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_logo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_logo_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_logo_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_logo_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_logo_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_logo_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_logo_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-v31/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-v31/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-v31/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/ic_logo_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/widget_info.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/Di.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/di/Di.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/android/wordtranslator/view/main/MainViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buildSrc/build/libs/buildSrc.jar" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/libs/buildSrc.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/build/pluginUnderTestMetadata/plugin-under-test-metadata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/pluginUnderTestMetadata/plugin-under-test-metadata.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/build/source-roots/buildSrc/source-roots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build/source-roots/buildSrc/source-roots.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buildSrc/src/main/java/Dependencies.kt" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/src/main/java/Dependencies.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/android/domain/api/YandexApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/android/domain/api/YandexApi.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/android/domain/api/YandexApiInterceptor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/android/domain/api/YandexApiInterceptor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenfavourite/src/main/java/com/android/screenfavourite/FavouriteFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/screenfavourite/src/main/java/com/android/screenfavourite/FavouriteFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenhistory/src/main/java/com/android/screenhistory/HistoryFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/screenhistory/src/main/java/com/android/screenhistory/HistoryFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenhistory/src/main/java/com/android/screenhistory/adapter/HistoryWordAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/screenhistory/src/main/java/com/android/screenhistory/adapter/HistoryWordAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/android/utils/DataConverters.kt" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/com/android/utils/DataConverters.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\boris\.android\avd\Pixel_4_API_29_1.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\boris\.android\avd\Pixel_4_API_31.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -56,7 +71,12 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="YandexApi" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -66,10 +86,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="valueResourceFile" />
-        <option value="resourceFile" />
         <option value="layoutResourceFile" />
         <option value="Kotlin Class" />
+        <option value="layoutResourceFile_vertical" />
+        <option value="valueResourceFile" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -121,8 +142,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Properties" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../JAVA/Notes" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26" />
+    <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -134,7 +155,16 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\boris\GeekBrains\KOTLIN\YandexApi\app\src\main\res\mipmap-anydpi-v26" />
+      <recent name="C:\Users\boris\GeekBrains\KOTLIN\YandexApi\screenhistory\src\main\res\values" />
+      <recent name="C:\Users\boris\GeekBrains\KOTLIN\YandexApi\screenhistory\src\main\res\menu" />
+      <recent name="C:\Users\boris\GeekBrains\KOTLIN\YandexApi\screenhistory\src\main\res\layout" />
+      <recent name="C:\Users\boris\GeekBrains\KOTLIN\YandexApi\screenhistory\src\main\res\drawable" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\boris\GeekBrains\KOTLIN\YandexApi\screenhistory\src\main\java\com\android\screenhistory" />
+      <recent name="C:\Users\boris\GeekBrains\KOTLIN\YandexApi\screenfavourite\src\main\java\com\android\screenfavourite" />
       <recent name="C:\Users\boris\GeekBrains\WordTranslator" />
     </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
@@ -145,16 +175,78 @@
       <recent name="com.android.wordtranslator.view.main" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
-      <recent name="com.android.wordtranslator.utils.network" />
-      <recent name="com.android.wordtranslator.utilss" />
-      <recent name="com.android.wordtranslator.view.main" />
-      <recent name="com.android.wordtranslator.view.favourite" />
-      <recent name="com.android.wordtranslator.view" />
+      <recent name="com.android.utils.network" />
+      <recent name="com.android.screendetail" />
+      <recent name="com.android.model" />
+      <recent name="com.android.wordtranslator.model" />
+      <recent name="com.android.domain.storage.entity" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.android.utils" />
+      <recent name="com.android.domain" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Android App.app">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="YandexApi.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="domain" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="YandexApi.domain" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
@@ -298,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639341182964</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Используйте Kotlin DSL.&#10;- Преобразовал оба build.gradle в build.gradle.kts.">
+      <created>1639773237871</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1639773237871</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -329,6 +428,7 @@
     <MESSAGE value="Внедрение Koin и избавление от Dagger&#10;- Вместо &quot;by viewModel&quot; пришлось использовать &quot;by stateViewModel()&quot; для передачи во ViewModel параметра типа SavedStateHandle, для того чтобы остался функционал по сохранению состояния из предыдущей ДЗ (Имплементируйте сохранение состояния приложения во ViewMode). Этот параметр можно передавать в конструктор ViewModel. Но при использовании с Dagger было сложно найти решение, а в Koin это делается элементарно" />
     <MESSAGE value="- Перешел на SingleActivity, экраны буду делать через фрагменты.&#10;- В koin добавлен модуль навигации, где используется Cicerone&#10;- Добавлено нижнее навигационное меню." />
     <MESSAGE value="- Сделан экран для истории, который содержит функцию очистки истории через меню в тулбаре.&#10;- На главном экране добавлена возможность добавлять найденные слова в избранное, нажатием на сердечко нужного слова.&#10;- Добавлен экран Избранного так же с возможностью очистки через меню в тулбаре&#10;- Добавлен экран детализации с более поддробной информацией (использование, примеры, синонимы, переводы, часть речи, транскрипция)&#10;- На главном экране через меню в тулбаре можно искать слова в истории. Появляется диалог для ввода слова, и если слово найдено, открывается экран детализации.&#10;- Т.к. у моего апи нету рисунков, то делаю просто загрузку изображения через Glide фиксированной ссылки на экране детализации.&#10;- Передача функции как параметра реализована в MainFragment.kt в виде:&#10;   private fun showMessage(toast: () -&gt; Unit) {&#10;           toast()&#10;   }&#10;&#10;   которая вызывается так:&#10;   showMessage {Toast.makeText(requireContext(),&quot;&quot;,Toast.LENGTH_SHORT).show()}&#10;&#10;- Все сделано на фрагментах, как говорят &quot;SingleActivity&quot;&#10;- Была проблема, в коде есть коммент большой, но я ее пофиксил, может костыльными способами, но работает пока все стабильно.&#10;- Так же у меня нет уникального идентификатора слов, которые приходят с API, слова есть одни и теже, но с разным переводом. Поэтому использование автогенерируемого ключа не спасает меня от дублирования информации. Поэтому был сделан составной ключ, состоящий из слова и части речи, т.к. это уникальная связка и не повторяется." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Сделан экран для истории, который содержит функцию очистки истории через меню в тулбаре.&#10;- На главном экране добавлена возможность добавлять найденные слова в избранное, нажатием на сердечко нужного слова.&#10;- Добавлен экран Избранного так же с возможностью очистки через меню в тулбаре&#10;- Добавлен экран детализации с более поддробной информацией (использование, примеры, синонимы, переводы, часть речи, транскрипция)&#10;- На главном экране через меню в тулбаре можно искать слова в истории. Появляется диалог для ввода слова, и если слово найдено, открывается экран детализации.&#10;- Т.к. у моего апи нету рисунков, то делаю просто загрузку изображения через Glide фиксированной ссылки на экране детализации.&#10;- Передача функции как параметра реализована в MainFragment.kt в виде:&#10;   private fun showMessage(toast: () -&gt; Unit) {&#10;           toast()&#10;   }&#10;&#10;   которая вызывается так:&#10;   showMessage {Toast.makeText(requireContext(),&quot;&quot;,Toast.LENGTH_SHORT).show()}&#10;&#10;- Все сделано на фрагментах, как говорят &quot;SingleActivity&quot;&#10;- Была проблема, в коде есть коммент большой, но я ее пофиксил, может костыльными способами, но работает пока все стабильно.&#10;- Так же у меня нет уникального идентификатора слов, которые приходят с API, слова есть одни и теже, но с разным переводом. Поэтому использование автогенерируемого ключа не спасает меня от дублирования информации. Поэтому был сделан составной ключ, состоящий из слова и части речи, т.к. это уникальная связка и не повторяется." />
+    <MESSAGE value="Используйте Kotlin DSL.&#10;- Преобразовал оба build.gradle в build.gradle.kts." />
+    <option name="LAST_COMMIT_MESSAGE" value="Используйте Kotlin DSL.&#10;- Преобразовал оба build.gradle в build.gradle.kts." />
   </component>
 </project>
