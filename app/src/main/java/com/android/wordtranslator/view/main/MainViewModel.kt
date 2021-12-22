@@ -1,28 +1,21 @@
 package com.android.wordtranslator.view.main
 
 import androidx.lifecycle.LiveData
+import io.reactivex.rxkotlin.plusAssign
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import com.android.domain.storage.entity.WordTranslate
 import com.android.model.AppState
 import com.android.model.DictionaryResult
-import com.android.domain.storage.entity.WordTranslate
 import com.android.utils.mapToListWordTranslate
 import com.android.utils.mapTranslateToFavourite
 import com.android.utils.network.NetworkState
 import com.android.utils.network.NetworkStateObservable
-import io.reactivex.rxkotlin.plusAssign
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class MainViewModel(
     private val interactor: MainInteractor,
     private val networkState: NetworkStateObservable,
 ) : BaseMainViewModel<AppState>() {
-
-    companion object {
-        //Задержка для экспериментов с корутинами
-        private const val DELAY_LOADING = 300L
-
-        private const val EMPTY_RESULT_MESSAGE = "Отсутсвуют данные. Измените/повторите запрос."
-    }
 
     fun translateLiveData(): LiveData<AppState> {
         return translateLiveData
@@ -47,7 +40,11 @@ class MainViewModel(
         viewModelCoroutineScope.launch {
             val result = interactor.repositoryLocal.findInHistoryByWord(word)
 
-            historyLiveData.postValue(AppState.Success(result))
+            if (result?.word != null) {
+                historyLiveData.postValue(AppState.Success(result))
+            } else {
+                historyLiveData.postValue(AppState.Error(Exception(EMPTY_RESULT_MESSAGE)))
+            }
         }
     }
 
@@ -114,5 +111,12 @@ class MainViewModel(
         cancelJob()
         compositeDisposable.clear()
         historyLiveData.postValue(AppState.Success(null))
+    }
+
+    companion object {
+        //Задержка для экспериментов с корутинами
+        private const val DELAY_LOADING = 0L
+
+        private const val EMPTY_RESULT_MESSAGE = "Отсутсвуют данные. Измените/повторите запрос."
     }
 }

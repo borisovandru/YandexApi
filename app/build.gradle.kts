@@ -18,12 +18,6 @@ android {
         versionCode = Config.VERSION_CODE
         versionName = Config.VERSION_NAME
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments["room.schemaLocation"] = "$projectDir/schemas"
-            }
-        }
     }
     buildTypes {
         getByName("release") {
@@ -113,6 +107,9 @@ dependencies {
     implementation(Glide.GLIDE)
     implementation(Glide.GLIDE_OKHTTP3)
     kapt(Glide.COMPILER)
+
+    // Splash screen Android 12
+    implementation(Design.SPLASH_SCREEN)
 
     // Tests
     testImplementation(Tests.JUNIT)
